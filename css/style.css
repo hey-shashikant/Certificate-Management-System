@@ -255,6 +255,7 @@ body{
     padding-bottom: 40px;
     text-align: center;
 }
+
 .footer-bottom p{
     color: white;
     float: left;
@@ -262,11 +263,21 @@ body{
     word-spacing: 2px;
     text-transform: capitalize;
 }
+
+.myname{
+    color: white;
+    float: left;
+    font-size: 14px;
+    word-spacing: 2px;
+    text-transform: capitalize;
+}
+
 .footer-bottom p a{
   color: white;
   font-size: 16px;
   text-decoration: none;
 }
+
 .footer-bottom span{
     text-transform: uppercase;
     opacity: .4;
@@ -291,9 +302,106 @@ display: block;
   color: white;
 }
 
-@media (max-width:500px) {
-.footer-menu ul{
+/* @media (max-width:500px) { */
+/* .footer-menu ul{
   display: flex;
   margin-top: 10px;
   margin-bottom: 20px;
+}
+/* .logo{
+    /* border: 1px solid black; */
+    /* width: 13%;
+    float: left;
+} */
+/* 
+.menu ul{
+    list-style-type: none;
+} */
+
+/* .menu{
+    line-height: 60px;
+} */
+
+/* .menu ul li{
+    display: inline;
+    padding: 1%;
+    font-weight: bold;
+}  */
+
+
+
+@media only screen and (max-width:768px){
+
+    .container{
+        /* border: 1px solid red; */
+        width: 100%;
+        margin: 0 auto;
+        padding: 1%;
+    }
+
+    .menu ul{
+        list-style-type: none;
+    }
+    
+    .menu{
+        line-height: 100px;
+    }
+    
+    .menu ul li{
+        /* display: inline; */
+        padding: 1%;
+        font-weight: bold;
+    }
+
+    .logo{
+        width: 80%;
+        float: none;
+        margin: 1% auto;
+    }
+
+    .menu ul{
+        text-align: center;
+    }
+
+    .food-search input[type="search"]{
+        width: 90%;
+        padding: 2%;
+        margin-bottom: 3%;
+    }
+
+    .btn{
+        width: 91%;
+        padding: 2%;
+    }
+
+    .food-search{
+        padding: 10% 0;
+    }
+
+    .categories{
+        padding: 20% 0;
+    }
+    h2{
+        margin-bottom: 10%;
+    }
+    .box-3{
+        width: 100%;
+        margin: 4% auto;
+    }
+
+    .food-menu{
+        padding: 20% 0;
+    }
+
+    .food-menu-box{
+        width: 90%;
+        padding: 5%;
+        margin-bottom: 5%;
+    }
+    .social{
+        padding: 5% 0;
+    }
+    .order{
+        width: 100%;
+    }
 }
