@@ -9,10 +9,12 @@
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/boxicons.min.css">
     <link rel="stylesheet" href="../https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
-    <link rel="stylesheet" href="../css/style.css">
+    <!-- <link rel="stylesheet" href="../css/login.css"> -->
+    <!-- <link rel="stylesheet" href="../css/style.css"> -->
     <link rel="stylesheet" href="../css/login.css">
+    
 
-    <title>Landing Page</title>
+    <title>Login Page</title>
 </head>
 
 <body data-bs-spy="scroll" data-bs-target=".navbar" data-bs-offset="50">
@@ -30,74 +32,74 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <!-- Just for the alignment of the button towards the left -->
                 <ul class="navbar-nav ms-auto">
+                    
                 </ul>
-                <button class="btn btn-primary ms-lg-3">User Login</button>
-                <button class="btn btn-primary ms-lg-3">Admin Login</button>
+
+                <!-- <div class='sign-in-up'> -->
+                    <!-- <button type='button' onclick="popup('login-popup')">LOGIN</button> -->
+                    <!-- <button type='button' onclick="popup('register-popup')">REGISTER</button> -->
+                  <!-- </div> -->
+                <button class="btn btn-primary ms-lg-3" type='button' onclick="popup('login-popup')">User Login</button>
+                <button class="btn btn-primary ms-lg-3" type='button' onclick="popup('register-popup')">Admin Login</button>
+
             </div>
         </div>
     </nav><!-- //NAVBAR ENDS HERE-->
 
+    <div class="popup-container" id="login-popup">
+        <div class="popup">
+          <form method="POST" action="login_register.php">
+            <h2>
+              <span>USER LOGIN</span>
+              <button type="reset" onclick="popup('login-popup')">X</button>
+            </h2>
+            <input type="text" placeholder="E-mail or Username" name="email_username">
+            <input type="password" placeholder="Password" name="password">
+            <button type="submit" class="login-btn" name="login">LOGIN</button>
+          </form>
+        </div>
+      </div>
+    
+      <div class="popup-container" id="register-popup">
+        <div class="register popup">
+            <form method="POST" action="login_register.php">
+                <h2>
+                  <span>ADMIN LOGIN</span>
+                  <!-- <button type="reset" onclick="popup('login-popup')">X</button> -->
+                  <button type="reset" onclick="popup('register-popup')">X</button>
+                </h2>
+                <input type="text" placeholder="E-mail or Username" name="email_username">
+                <input type="password" placeholder="Password" name="password">
+                <button type="submit" class="login-btn" name="login">LOGIN</button>
+              </form>
+        </div>
+      </div>
 
 
-    <footer>
-        <div class="footer-top">
-            <div class="container">
-                <div class="row gy-4">
-                    <div class="col-lg-4">
-                        <img class="logo" src="../img/logo-white.svg" alt="">
-                    </div>
-                    <div class="col-lg-2">
-                        <h5 class="text-white">Brand</h5>
-                        <ul class="list-unstyled">
-                            <li><a href="#">About</a></li>
-                            <li><a href="#">Services</a></li>
-                            <li><a href="#">Features</a></li>
-                            <li><a href="#">Pricing</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-lg-2">
-                        <h5 class="text-white">More</h5>
-                        <ul class="list-unstyled">
-                            <li><a href="#">FAQ's</a></li>
-                            <li><a href="#">Privacy & Policy</a></li>
-                            <li><a href="#">Warranty</a></li>
-                            <li><a href="#">Shipment</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-lg-4">
-                        <h5 class="text-white">Contact</h5>
-                        <ul class="list-unstyled">
-                            <li>Address: 2715 Ash Dr. San Jose, South Dakota 83475</li>
-                            <li>Email: jackson.graham@example.com</li>
-                            <li>Phone: (603) 555-0123</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="footer-bottom py-3">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-6">
-                        <p class="mb-0">© 2020 copyright all right reserved | Designed with <i
-                            class="bx bx-heart text-danger"></i> by<a
-                                href="https://www.youtube.com/channel/UCYMEEnLzGGGIpQQ3Nu_sBsQ"
-                                class="text-white">SA7MAN</a></p>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="social-icons">
-                            <a href="#"><i class='bx bxl-facebook'></i></a>
-                            <a href="#"><i class='bx bxl-twitter'></i></a>
-                            <a href="#"><i class='bx bxl-instagram-alt'></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
+
+	<!-- </body>
+</html> -->
+
+
 
 
 
     <script src="../js/bootstrap.bundle.min.js"></script>
+
+
+    <script>
+        function popup(popup_name)
+        {
+          get_popup=document.getElementById(popup_name);
+          if(get_popup.style.display=="flex")
+          {
+            get_popup.style.display="none";
+          }
+          else
+          {
+            get_popup.style.display="flex";
+          }
+        }
+      </script>
 </body>
 </html>
