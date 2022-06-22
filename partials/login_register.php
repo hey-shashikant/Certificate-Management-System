@@ -4,6 +4,16 @@
 require('connection.php');
 // for login
 
+// name="admin_login"
+// if(isset($_GET['submit'])) {
+//   $var = $_GET['option1'];
+//   if(isset($var)) {
+//       echo "Option 1 submitted successfully";
+//   }
+// }
+
+if(isset($_POST['submitted'])){
+
 if(isset($_POST['user_login'])){
       $username = $_POST['user_id'];
       $user_exist_query = "SELECT * FROM `user_login` WHERE user_id = '$username' ";
@@ -17,7 +27,7 @@ if(isset($_POST['user_login'])){
             $pswd = $_POST['password'];
             $passwd = $result_fetch['password'];
             if($pswd == $passwd){
-                echo "Login Successful";
+                echo "User Login Successful";
                 // $_SESSION['logged_in']=true;
                 // $_SESSION['username']=$result_fetch['username'];
                 // header("location: index.php");
@@ -35,7 +45,7 @@ if(isset($_POST['user_login'])){
             echo"
                 <script>
                 alert('User not registered Please contact admin.');
-                window.location.href='index.php';
+                // window.location.href='index.php';
                 </script>
                 ";
         }
@@ -52,7 +62,7 @@ if(isset($_POST['user_login'])){
 
 
 if(isset($_POST['admin_login'])){
-    $username = $_POST['admin_id'];
+    $username = $_POST['user_id'];
     $user_exist_query = "SELECT * FROM `admin_login` WHERE admin_id = '$username' ";
     $result = mysqli_query($con,$user_exist_query);
   //   $count = mysqli_num_rows($result);
@@ -64,7 +74,7 @@ if(isset($_POST['admin_login'])){
           $pswd = $_POST['password'];
           $passwd = $result_fetch['password'];
           if($pswd == $passwd){
-              echo "Login Successful.";
+              echo "Admin Login Successful.";
               // $_SESSION['logged_in']=true;
               // $_SESSION['username']=$result_fetch['username'];
               // header("location: index.php");
@@ -96,6 +106,14 @@ if(isset($_POST['admin_login'])){
       ";
   }
 }
-
+}
+else{
+  echo"
+      <script>
+      alert('Cannot run query Password.');
+      window.location.href='index.php';
+      </script>
+      ";
+}
 
 ?>
