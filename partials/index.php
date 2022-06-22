@@ -1,3 +1,5 @@
+<?php require('connection.php');?>
+
 <!doctype html>
 <html lang="en">
 
@@ -51,9 +53,9 @@
               <span>USER LOGIN</span>
               <button type="reset" onclick="popup('login-popup')">X</button>
             </h2>
-            <input type="text" placeholder="E-mail or Username" name="email_username">
+            <input type="text" placeholder="E-mail or Username" name="user_id">
             <input type="password" placeholder="Password" name="password">
-            <button type="submit" class="login-btn" name="login">LOGIN</button>
+            <button type="submit" class="login-btn" name="user_login">LOGIN</button>
           </form>
         </div>
       </div>
@@ -66,9 +68,9 @@
                   <!-- <button type="reset" onclick="popup('login-popup')">X</button> -->
                   <button type="reset" onclick="popup('register-popup')">X</button>
                 </h2>
-                <input type="text" placeholder="E-mail or Username" name="email_username">
+                <input type="text" placeholder="E-mail or Username" name="admin_id">
                 <input type="password" placeholder="Password" name="password">
-                <button type="submit" class="login-btn" name="login">LOGIN</button>
+                <button type="submit" class="login-btn" name="admin_login">LOGIN</button>
               </form>
         </div>
       </div>

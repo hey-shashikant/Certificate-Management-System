@@ -4,7 +4,7 @@
 // $password = "password";
 
 // Create connection
-$con = mysqli_connect("localhost", "root", "", "testing");
+$con = mysqli_connect("localhost", "root", "", "cms");
 
 // Check connection
 if(mysqli_connect_error()){
