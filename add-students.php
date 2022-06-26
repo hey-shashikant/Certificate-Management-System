@@ -1,46 +1,71 @@
+
 <?php
-session_start();
-error_reporting(0);
-include('partials/connection.php');
-if(strlen($_SESSION['alogin'])=="")
-    {   
-    header("Location: index.php"); 
+require('partials/connection.php');
+
+
+// for registration
+if(isset($_POST['submit'])){
+    $studentname=$_POST['fullanme'];
+    $roolid=$_POST['rollid']; 
+    $studentemail=$_POST['emailid']; 
+    $gender=$_POST['gender']; 
+    $dob=$_POST['dob']; 
+    $password = $_POST['password'];
+    $user_exist_query = "SELECT `fullname`, `enrollment_id`, `email_id`, `gender`, `dob`, `password` FROM `student` WHERE enrollment_id = '$roolid' OR email_id = '$studentemail'";
+    $result = mysqli_query($con,$user_exist_query);
+    if($result){
+        if(mysqli_num_rows($result) >= 1){
+            $result_fetch = mysqli_fetch_assoc($result);
+            if($result_fetch['enrollment_no'] == $_POST['enrollment_no']){
+                echo "
+                <script>
+                    alert(' $result_fetch[enrollment_no] - Username already taken');
+                    window.location.href='admin_dashboard.php';
+                </script>
+                ";
+            }
+            else{
+                echo "
+                <script>
+                    alert(' $result_fetch[email] - E-mail already taken');
+                    window.location.href='admin_dashboard.php';
+                </script>
+                ";
+            }
+        }
+        else
+            {
+            $query = "INSERT INTO `student`(`fullname`, `enrollment_id`, `email_id`, `gender`, `dob`, `password`) VALUES ('$_POST[fullanme]','$_POST[rollid]','$_POST[emailid]','$_POST[gender]','$_POST[dob]','$_POST[password]')";
+            // $query = "INSERT INTO `student`(`fullname`, `enrollment_id`, `email_id`,`gender`,`dob` `password`) VALUES ('$_POST[name]','$_POST[enrollment_no]','$_POST[email]','$_POST[password]')";
+            if(mysqli_query($con,$query)){
+                echo "
+                <script>
+                    alert('Registration Successful');
+                    window.location.href='admin_dashboard.php';
+                </script>
+                ";
+            }
+            else{
+                echo "
+                <script>
+                    alert('Registration Failed.');
+                    window.location.href='admin_dashboard.php';
+                </script>
+                ";
+            }
+        }
     }
+   
     else{
-if(isset($_POST['submit']))
-{
-$studentname=$_POST['fullanme'];
-$roolid=$_POST['rollid']; 
-$studentemail=$_POST['emailid']; 
-$gender=$_POST['gender']; 
-// $classid=$_POST['class']; 
-$dob=$_POST['dob']; 
-$password = $_POST['password'];
-$status=1;
-$sql="INSERT INTO  tblstudents(StudentName,RollId,StudentEmail,Gender,DOB,password,Status) VALUES(:studentname,:roolid,:studentemail,:gender,:dob,:password,:Status)";
-$query = $dbh->prepare($sql);
-$query->bindParam(':studentname',$studentname,PDO::PARAM_STR);
-$query->bindParam(':roolid',$roolid,PDO::PARAM_STR);
-$query->bindParam(':studentemail',$studentemail,PDO::PARAM_STR);
-$query->bindParam(':gender',$gender,PDO::PARAM_STR);
-// $query->bindParam(':classid',$classid,PDO::PARAM_STR);
-$query->bindParam(':dob',$dob,PDO::PARAM_STR);
-$query->bindParam(':status',$status,PDO::PARAM_STR);
-$query->bindParam(':password',$password,PDO::PARAM_STR);
-$query->bindParam(':status',$status,PDO::PARAM_STR);
-
-$query->execute();
-$lastInsertId = $dbh->lastInsertId();
-if($lastInsertId)
-{
-$msg="Student info added successfully";
-}
-else 
-{
-$error="Something went wrong. Please try again";
+        echo"
+        <script>
+        alert('Cannot run query');
+        window.location.href='admin_dashboard.php';
+        </script>
+        ";
+    }
 }
 
-}
 ?>
 
 
@@ -132,7 +157,7 @@ else if($error){?>
 <div class="form-group">
 <label for="default" class="col-sm-2 control-label">Enrollment Id</label>
 <div class="col-sm-10">
-<input type="text" name="rollid" class="form-control" id="rollid" maxlength="5" required="required" autocomplete="off">
+<input type="text" name="rollid" class="form-control" id="rollid" maxlength="15" required="required" autocomplete="off">
 </div>
 </div>
 
@@ -215,4 +240,4 @@ else if($error){?>
         </script>
     </body>
 </html>
-<?PHP } ?>
+
