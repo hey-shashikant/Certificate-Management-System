@@ -32,7 +32,7 @@ if(strlen($_SESSION['alogin'])=="")
             	<div class="container-fluid">
                     <div class="row">
                         <div class="navbar-header no-padding">
-                			<a class="navbar-brand" href="dashboard.php">
+                			<a class="navbar-brand" href="admin_dashboard.php">
                 			    SCMS | Admin
                 			</a>
                             <span class="small-nav-handle hidden-sm hidden-xs"><i class="fa fa-outdent"></i></span>
@@ -95,7 +95,7 @@ if(strlen($_SESSION['alogin'])=="")
                                         <span class="">Main Category</span>
                                     </li>
                                     <li>
-                                        <a href="dashboard.php"><i class="fa fa-dashboard"></i> <span>Dashboard</span> </a>
+                                        <a href="admin_dashboard.php"><i class="fa fa-dashboard"></i> <span>Dashboard</span> </a>
                                      
                                     </li>
 
@@ -130,7 +130,7 @@ if(strlen($_SESSION['alogin'])=="")
 <li class="has-children">
                                         <a href="#"><i class="fa fa-info-circle"></i> <span>Certificate</span> <i class="fa fa-angle-right arrow"></i></a>
                                         <ul class="child-nav">
-                                            <li><a href="add-result.php"><i class="fa fa-bars"></i> <span>Add Certificate</span></a></li>
+                                            <li><a href="add-certificate.php"><i class="fa fa-bars"></i> <span>Add Certificate</span></a></li>
                                             <li><a href="manage-results.php"><i class="fa fa fa-server"></i> <span>Manage Certificate</span></a></li>
                                            
                                         </ul>        </li>
