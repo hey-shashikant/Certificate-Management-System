@@ -289,7 +289,7 @@ if(strlen($_SESSION['alogin'])=="")
                   "showMethod": "fadeIn",
                   "hideMethod": "fadeOut"
                 }
-                toastr["success"]( "Welcome to student Result Management System!");
+                toastr["success"]( "Welcome to student Certificate Management System!");
 
             });
         </script>

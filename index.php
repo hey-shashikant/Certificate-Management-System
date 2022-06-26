@@ -1,3 +1,7 @@
+<?php
+include('partials/connection.php');
+?>
+
 <!doctype html>
 <html lang="en">
 
