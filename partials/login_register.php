@@ -12,6 +12,7 @@ require('connection.php');
 //   }
 // }
 
+
 if(isset($_POST['submitted'])){
 
 if(isset($_POST['user_login'])){
@@ -30,7 +31,7 @@ if(isset($_POST['user_login'])){
                 echo "User Login Successful";
                 // $_SESSION['logged_in']=true;
                 // $_SESSION['username']=$result_fetch['username'];
-                // header("location: index.php");
+                header("location: index.php");
             }   
             else{
                 echo"
@@ -77,7 +78,7 @@ if(isset($_POST['admin_login'])){
               echo "Admin Login Successful.";
               // $_SESSION['logged_in']=true;
               // $_SESSION['username']=$result_fetch['username'];
-              // header("location: index.php");
+              header("location: ../admin_dashboard.php");
           }   
           else{
               echo"
