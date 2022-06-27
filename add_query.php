@@ -7,7 +7,7 @@ if(isset($_POST['submit'])){
     $studentname=$_POST['fullanme'];
     $roolid=$_POST['rollid']; 
     $certificateid=$_POST['query'];
-    $query = "INSERT INTO `query`(`enrollment_id`, `name`, `message`) VALUES ('$_POST[fullanme]','$_POST[rollid]','$_POST[query]')";
+    $query = "INSERT INTO `query`(`enrollment_id`, `name`, `message`) VALUES ('$_POST[rollid]','$_POST[fullanme]','$_POST[query]')";
             if(mysqli_query($con,$query)){
                 echo "
                 <script>
@@ -30,27 +30,27 @@ if(isset($_POST['submit'])){
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
     	<meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>SCMS Admin| Student Admission< </title>
-        <link rel="stylesheet" href="css/bootstrap.min.css" media="screen" >
-        <link rel="stylesheet" href="css/font-awesome.min.css" media="screen" >
-        <link rel="stylesheet" href="css/animate-css/animate.min.css" media="screen" >
-        <link rel="stylesheet" href="css/lobipanel/lobipanel.min.css" media="screen" >
-        <link rel="stylesheet" href="css/prism/prism.css" media="screen" >
-        <link rel="stylesheet" href="css/select2/select2.min.css" >
-        <link rel="stylesheet" href="css/main.css" media="screen" >
-        <script src="js/modernizr/modernizr.min.js"></script>
+        <title>SCMS User| Student Admission< </title>
+        <link rel="stylesheet" href="csss/bootstrap.min.css" media="screen" >
+        <link rel="stylesheet" href="csss/font-awesome.min.css" media="screen" >
+        <link rel="stylesheet" href="csss/animate-css/animate.min.css" media="screen" >
+        <link rel="stylesheet" href="csss/lobipanel/lobipanel.min.css" media="screen" >
+        <link rel="stylesheet" href="csss/prism/prism.css" media="screen" >
+        <link rel="stylesheet" href="csss/select2/select2.min.css" >
+        <link rel="stylesheet" href="csss/main.css" media="screen" >
+        <script src="jss/modernizr/modernizr.min.js"></script>
     </head>
     <body class="top-navbar-fixed">
         <div class="main-wrapper">
 
             <!-- ========== TOP NAVBAR ========== -->
-  <?php include('includes/topbar.php');?> 
+  <?php include('includes/topbar_user.php');?> 
             <!-- ========== WRAPPER FOR BOTH SIDEBARS & MAIN CONTENT ========== -->
             <div class="content-wrapper">
                 <div class="content-container">
 
                     <!-- ========== LEFT SIDEBAR ========== -->
-                   <?php include('includes/leftbar.php');?>  
+                   <?php include('includes/leftbar_user.php');?>  
                     <!-- /.left-sidebar -->
 
                     <div class="main-page">
@@ -117,7 +117,7 @@ else if($error){?>
 <div class="form-group">
 <label for="default" class="col-sm-2 control-label">Enter your query</label>
 <div class="col-sm-10">
-<input type="text" name="query" class="form-control" id="rollid" maxlength="25" required="required" autocomplete="off">
+<input type="text" name="query" class="form-control" id="rollid" maxlength="1000" required="required" autocomplete="off">
 </div>
 </div>
 
