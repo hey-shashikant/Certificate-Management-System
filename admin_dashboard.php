@@ -134,7 +134,7 @@ if(strlen($_SESSION['alogin'])=="")
                                         <ul class="child-nav">
                                             <li><a href="add-certificate.php"><i class="fa fa-bars"></i> <span>Add Certificate</span></a></li>
                                             <li><a href="manage-results.php"><i class="fa fa fa-server"></i> <span>Update Certificate</span></a></li>
-                                            <li><a href="manage-results.php"><i class="fa fa fa-server"></i> <span>Delete Certificate</span></a></li>
+                                            <li><a href="remove_certificate.php"><i class="fa fa fa-server"></i> <span>Delete Certificate</span></a></li>
 
                                            
                                         </ul>        </li>
