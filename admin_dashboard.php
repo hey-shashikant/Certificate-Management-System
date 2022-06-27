@@ -124,7 +124,7 @@ if(strlen($_SESSION['alogin'])=="")
                                         <ul class="child-nav">
                                             <li><a href="add-students.php"><i class="fa fa-bars"></i> <span>Add Student</span></a></li>
                                             <li><a href="manage-students.php"><i class="fa fa fa-server"></i> <span>Update Student</span></a></li>
-                                            <li><a href="manage-students.php"><i class="fa fa fa-server"></i> <span>Delete Student</span></a></li>
+                                            <li><a href="remove_student.php"><i class="fa fa fa-server"></i> <span>Delete Student</span></a></li>
 
                                            
                                         </ul>
