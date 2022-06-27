@@ -181,7 +181,7 @@ if(strlen($_SESSION['alogin'])=="")
                                         <a class="dashboard-stat bg-primary" href="manage-students.php">
 
                                             <span class="number counter"></span>
-                                            <span class="name">Regd Users</span>
+                                            <span class="name">No. Of Users</span>
                                             <span class="bg-icon"><i class="fa fa-users"></i></span>
                                         </a>
                                         <!-- /.dashboard-stat -->
@@ -192,7 +192,7 @@ if(strlen($_SESSION['alogin'])=="")
                                         <a class="dashboard-stat bg-danger" href="manage-subjects.php">
 
                                             <span class="number counter"></span>
-                                            <span class="name">Subjects Listed</span>
+                                            <span class="name">Total Certificates</span>
                                             <span class="bg-icon"><i class="fa fa-ticket"></i></span>
                                         </a>
                                         <!-- /.dashboard-stat -->
@@ -203,7 +203,7 @@ if(strlen($_SESSION['alogin'])=="")
                                         <a class="dashboard-stat bg-warning" href="manage-classes.php">
                       
                                             <span class="number counter"></span>
-                                            <span class="name">Total classes listed</span>
+                                            <span class="name">Total queries listed</span>
                                             <span class="bg-icon"><i class="fa fa-bank"></i></span>
                                         </a>
                                         <!-- /.dashboard-stat -->
