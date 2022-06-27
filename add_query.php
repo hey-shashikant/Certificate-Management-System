@@ -1,4 +1,3 @@
-
 <?php
 require('partials/connection.php');
 
@@ -7,44 +6,18 @@ require('partials/connection.php');
 if(isset($_POST['submit'])){
     $studentname=$_POST['fullanme'];
     $roolid=$_POST['rollid']; 
-    // $studentemail=$_POST['emailid']; 
-    $user_exist_query = "SELECT `fullname`, `enrollment_id`, `email_id`, `gender`, `dob`, `password` FROM `student` WHERE enrollment_id = '$roolid' ";
-    $result = mysqli_query($con,$user_exist_query);
-    if($result){
-        if(mysqli_num_rows($result) >= 1){
-            // $result_fetch = mysqli_fetch_assoc($result);
-            $sql = "DELETE FROM `student` WHERE enrollment_id = '$roolid' ";
-            if (mysqli_query($con, $sql)) {
-                // echo "Record deleted successfully";
-                echo"
-                    <script>
-                    alert('Record Deleted Successfully');
-                    window.location.href='admin_dashboard.php';
-                    </script>
-                    ";
-            } 
-            else {
-                echo "Error deleting record: " . mysqli_error($con);
-            }
-        }
-        else{
-            echo "
+    $certificateid=$_POST['query'];
+    $query = "INSERT INTO `query`(`enrollment_id`, `name`, `message`) VALUES ('$_POST[fullanme]','$_POST[rollid]','$_POST[query]')";
+            if(mysqli_query($con,$query)){
+                echo "
                 <script>
-                    alert('Record not found.');
-                    window.location.href='admin_dashboard.php';
+                    alert('Query Registered Successfully');
+                    window.location.href='user_dashboard.php';
                 </script>
                 ";
-        }
-    }
-    else{
-        echo"
-        <script>
-        alert('Cannot run query');
-        window.location.href='admin_dashboard.php';
-        </script>
-        ";
-    }
+            }
 }
+
 ?>
 
 
@@ -85,7 +58,7 @@ if(isset($_POST['submit'])){
                      <div class="container-fluid">
                             <div class="row page-title-div">
                                 <div class="col-md-6">
-                                    <h2 class="title">Student Dismissal</h2>
+                                    <h2 class="title">Certificate Admission</h2>
                                 
                                 </div>
                                 
@@ -97,7 +70,7 @@ if(isset($_POST['submit'])){
                                     <ul class="breadcrumb">
                                         <li><a href="admin_dashboard.php"><i class="fa fa-home"></i> Home</a></li>
                                 
-                                        <li class="active">Add Student Details</li>
+                                        <li class="active">Add Certificate Details</li>
                                     </ul>
                                 </div>
                              
@@ -126,12 +99,6 @@ else if($error){?>
                                         <?php } ?>
                                                 <form class="form-horizontal" method="post">
 
-<div class="form-group">
-<label for="default" class="col-sm-2 control-label">Full Name</label>
-<div class="col-sm-10">
-<input type="text" name="fullanme" class="form-control" id="fullanme" required="required" autocomplete="off">
-</div>
-</div>
 
 <div class="form-group">
 <label for="default" class="col-sm-2 control-label">Enrollment Id</label>
@@ -141,25 +108,28 @@ else if($error){?>
 </div>
 
 <div class="form-group">
-<label for="default" class="col-sm-2 control-label">Re-enter Enrollment Id</label>
+<label for="default" class="col-sm-2 control-label">Full Name</label>
 <div class="col-sm-10">
-<input type="text" name="rollid" class="form-control" id="rollid" maxlength="15" required="required" autocomplete="off">
+<input type="text" name="fullanme" class="form-control" id="fullanme" required="required" autocomplete="off">
 </div>
 </div>
 
-<!-- <div class="form-group">
-<label for="default" class="col-sm-2 control-label">E-mail id</label>
+<div class="form-group">
+<label for="default" class="col-sm-2 control-label">Enter your query</label>
 <div class="col-sm-10">
-<input type="email" name="emailid" class="form-control" id="email" required="required" autocomplete="off">
+<input type="text" name="query" class="form-control" id="rollid" maxlength="25" required="required" autocomplete="off">
 </div>
-</div> -->
+</div>
 
-                                            
+
+
+
+                                                    
 
                                                     
                                                     <div class="form-group">
                                                         <div class="col-sm-offset-2 col-sm-10">
-                                                            <button type="submit" name="submit" class="btn btn-primary">Delete</button>
+                                                            <button type="submit" name="submit" class="btn btn-primary">Add</button>
                                                         </div>
                                                     </div>
                                                 </form>
@@ -197,4 +167,5 @@ else if($error){?>
         </script>
     </body>
 </html>
+
 
