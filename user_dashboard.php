@@ -146,7 +146,7 @@ if(strlen($_SESSION['alogin'])=="")
 
 
 
-                                        <li><a href="change-password.php"><i class="fa fa fa-server"></i> <span> User Change Password</span></a></li>
+                                        <li><a href="user_change_password.php"><i class="fa fa fa-server"></i> <span> User Change Password</span></a></li>
                                            
                             
                             </div>
