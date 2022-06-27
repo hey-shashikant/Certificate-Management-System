@@ -122,8 +122,10 @@ if(strlen($_SESSION['alogin'])=="")
    <li class="has-children">
                                         <a href="#"><i class="fa fa-users"></i> <span>Students</span> <i class="fa fa-angle-right arrow"></i></a>
                                         <ul class="child-nav">
-                                            <li><a href="add-students.php"><i class="fa fa-bars"></i> <span>Add Students</span></a></li>
-                                            <li><a href="manage-students.php"><i class="fa fa fa-server"></i> <span>Manage Students</span></a></li>
+                                            <li><a href="add-students.php"><i class="fa fa-bars"></i> <span>Add Student</span></a></li>
+                                            <li><a href="manage-students.php"><i class="fa fa fa-server"></i> <span>Update Student</span></a></li>
+                                            <li><a href="manage-students.php"><i class="fa fa fa-server"></i> <span>Delete Student</span></a></li>
+
                                            
                                         </ul>
                                     </li>
@@ -131,16 +133,18 @@ if(strlen($_SESSION['alogin'])=="")
                                         <a href="#"><i class="fa fa-info-circle"></i> <span>Certificate</span> <i class="fa fa-angle-right arrow"></i></a>
                                         <ul class="child-nav">
                                             <li><a href="add-certificate.php"><i class="fa fa-bars"></i> <span>Add Certificate</span></a></li>
-                                            <li><a href="manage-results.php"><i class="fa fa fa-server"></i> <span>Manage Certificate</span></a></li>
+                                            <li><a href="manage-results.php"><i class="fa fa fa-server"></i> <span>Update Certificate</span></a></li>
+                                            <li><a href="manage-results.php"><i class="fa fa fa-server"></i> <span>Delete Certificate</span></a></li>
+
                                            
                                         </ul>        </li>
 
 
 <li class="has-children">
-                                        <a href="#"><i class="fa fa-bell"></i> <span>Notices</span> <i class="fa fa-angle-right arrow"></i></a>
+                                        <a href="#"><i class="fa fa-bell"></i> <span>Queries</span> <i class="fa fa-angle-right arrow"></i></a>
                                         <ul class="child-nav">
-                                            <li><a href="add-notice.php"><i class="fa fa-bars"></i> <span>Add Notice</span></a></li>
-                                            <li><a href="manage-notices.php"><i class="fa fa fa-server"></i> <span>Manage Notices</span></a></li>
+                                            <li><a href="add-notice.php"><i class="fa fa-bars"></i> <span>Answer Query</span></a></li>
+                                            <li><a href="manage-notices.php"><i class="fa fa fa-server"></i> <span>Delete Query</span></a></li>
                                            
                                         </ul>        </li>
 

@@ -1,46 +1,72 @@
 <?php
-session_start();
-error_reporting(0);
-include('partials/connection.php');
-if(strlen($_SESSION['alogin'])=="")
-    {   
-    header("Location: index.php"); 
+require('partials/connection.php');
+
+
+// for registration
+if(isset($_POST['submit'])){
+    $studentname=$_POST['fullanme'];
+    $roolid=$_POST['rollid']; 
+    $certificateid=$_POST['certificateid'];
+    $issuedby=$_POST['issuedby'];
+    $doi=$_POST['doi'];
+    $doe=$_POST['doe']; 
+    // $password = $_POST['password'];
+    $user_exist_query = "SELECT `fullname`, `enrollment_id`, `certificate_id`, `issued_by`, `doi`, `doe` FROM `certificates` WHERE certificate_id = '$certificateid' ";
+    $result = mysqli_query($con,$user_exist_query);
+    if($result){
+        if(mysqli_num_rows($result) >= 1){
+            $result_fetch = mysqli_fetch_assoc($result);
+            if($result_fetch['certificate_id'] == $_POST['certificateid']){
+                echo "
+                <script>
+                    alert(' $result_fetch[certificate_id] - Certificate Id already taken');
+                    window.location.href='admin_dashboard.php';
+                </script>
+                ";
+            }
+            // else{
+            //     echo "
+            //     <script>
+            //         alert(' $result_fetch[email] - E-mail already taken');
+            //         window.location.href='admin_dashboard.php';
+            //     </script>
+            //     ";
+            // }
+        }
+        else
+            {
+            $query = "INSERT INTO `certificates`(`fullname`, `enrollment_id`, `certificate_id`, `issued_by`, `doi`, `doe`) VALUES ('$_POST[fullanme]','$_POST[rollid]','$_POST[certificateid]','$_POST[issuedby]','$_POST[doi]','$_POST[doe]')";    
+            // $query = "INSERT INTO `student`(`fullname`, `enrollment_id`, `email_id`, `gender`, `dob`, `password`) VALUES ('$_POST[fullanme]','$_POST[rollid]','$_POST[emailid]','$_POST[gender]','$_POST[dob]','$_POST[password]')";
+            // $query = "INSERT INTO `student`(`fullname`, `enrollment_id`, `email_id`,`gender`,`dob` `password`) VALUES ('$_POST[name]','$_POST[enrollment_no]','$_POST[email]','$_POST[password]')";
+            if(mysqli_query($con,$query)){
+                echo "
+                <script>
+                    alert('Registration Successful');
+                    window.location.href='admin_dashboard.php';
+                </script>
+                ";
+            }
+            else{
+                echo "
+                <script>
+                    alert('Registration Failed.');
+                    window.location.href='admin_dashboard.php';
+                </script>
+                ";
+            }
+        }
     }
+   
     else{
-if(isset($_POST['submit']))
-{
-$studentname=$_POST['fullanme'];
-$roolid=$_POST['rollid']; 
-$studentemail=$_POST['emailid']; 
-$gender=$_POST['gender']; 
-// $classid=$_POST['class']; 
-$dob=$_POST['dob']; 
-$password = $_POST['password'];
-$status=1;
-$sql="INSERT INTO  tblstudents(StudentName,RollId,StudentEmail,Gender,DOB,password,Status) VALUES(:studentname,:roolid,:studentemail,:gender,:dob,:password,:Status)";
-$query = $dbh->prepare($sql);
-$query->bindParam(':studentname',$studentname,PDO::PARAM_STR);
-$query->bindParam(':roolid',$roolid,PDO::PARAM_STR);
-$query->bindParam(':studentemail',$studentemail,PDO::PARAM_STR);
-$query->bindParam(':gender',$gender,PDO::PARAM_STR);
-// $query->bindParam(':classid',$classid,PDO::PARAM_STR);
-$query->bindParam(':dob',$dob,PDO::PARAM_STR);
-$query->bindParam(':status',$status,PDO::PARAM_STR);
-$query->bindParam(':password',$password,PDO::PARAM_STR);
-$query->bindParam(':status',$status,PDO::PARAM_STR);
-
-$query->execute();
-$lastInsertId = $dbh->lastInsertId();
-if($lastInsertId)
-{
-$msg="Student info added successfully";
-}
-else 
-{
-$error="Something went wrong. Please try again";
+        echo"
+        <script>
+        alert('Cannot run query');
+        window.location.href='admin_dashboard.php';
+        </script>
+        ";
+    }
 }
 
-}
 ?>
 
 
@@ -81,7 +107,7 @@ $error="Something went wrong. Please try again";
                      <div class="container-fluid">
                             <div class="row page-title-div">
                                 <div class="col-md-6">
-                                    <h2 class="title">Student Admission</h2>
+                                    <h2 class="title">Certificate Admission</h2>
                                 
                                 </div>
                                 
@@ -93,7 +119,7 @@ $error="Something went wrong. Please try again";
                                     <ul class="breadcrumb">
                                         <li><a href="admin_dashboard.php"><i class="fa fa-home"></i> Home</a></li>
                                 
-                                        <li class="active">Add Student Details</li>
+                                        <li class="active">Add Certificate Details</li>
                                     </ul>
                                 </div>
                              
@@ -210,4 +236,4 @@ else if($error){?>
         </script>
     </body>
 </html>
-<?PHP } ?>
+
