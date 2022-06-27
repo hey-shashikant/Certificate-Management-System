@@ -146,14 +146,14 @@ else if($error){?>
             <!-- /.content-wrapper -->
         </div>
         <!-- /.main-wrapper -->
-        <script src="js/jquery/jquery-2.2.4.min.js"></script>
-        <script src="js/bootstrap/bootstrap.min.js"></script>
-        <script src="js/pace/pace.min.js"></script>
-        <script src="js/lobipanel/lobipanel.min.js"></script>
-        <script src="js/iscroll/iscroll.js"></script>
-        <script src="js/prism/prism.js"></script>
-        <script src="js/select2/select2.min.js"></script>
-        <script src="js/main.js"></script>
+        <script src="jss/jquery/jquery-2.2.4.min.js"></script>
+        <script src="jss/bootstrap/bootstrap.min.js"></script>
+        <script src="jss/pace/pace.min.js"></script>
+        <script src="jss/lobipanel/lobipanel.min.js"></script>
+        <script src="jss/iscroll/iscroll.js"></script>
+        <script src="jss/prism/prism.js"></script>
+        <script src="jss/select2/select2.min.js"></script>
+        <script src="jss/main.js"></script>
         <script>
             $(function($) {
                 $(".js-states").select2();

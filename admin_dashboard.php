@@ -1,7 +1,7 @@
 <?php
 session_start();
 error_reporting(0);
-include('includes/config.php');
+include('partials/connection.php');
 if(strlen($_SESSION['alogin'])=="")
 {   header("Location: index.php"); }else{
 ?>
@@ -143,7 +143,7 @@ if(strlen($_SESSION['alogin'])=="")
 <li class="has-children">
                                         <a href="#"><i class="fa fa-bell"></i> <span>Queries</span> <i class="fa fa-angle-right arrow"></i></a>
                                         <ul class="child-nav">
-                                            <li><a href="add-notice.php"><i class="fa fa-bars"></i> <span>Answer Query</span></a></li>
+                                            <li><a href="answer_query.php"><i class="fa fa-bars"></i> <span>Answer Query</span></a></li>
                                             <li><a href="manage-notices.php"><i class="fa fa fa-server"></i> <span>Delete Query</span></a></li>
                                            
                                         </ul>        </li>

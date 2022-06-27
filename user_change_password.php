@@ -56,13 +56,13 @@ if(isset($_POST['submit'])){
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
     	<meta name="viewport" content="width=device-width, initial-scale=1">
         <title>User change password</title>
-        <link rel="stylesheet" href="css/bootstrap.css" media="screen" >
-        <link rel="stylesheet" href="css/font-awesome.min.css" media="screen" >
-        <link rel="stylesheet" href="css/animate-css/animate.min.css" media="screen" >
-        <link rel="stylesheet" href="css/lobipanel/lobipanel.min.css" media="screen" >
-        <link rel="stylesheet" href="css/prism/prism.css" media="screen" > <!-- USED FOR DEMO HELP - YOU CAN REMOVE IT -->
-        <link rel="stylesheet" href="css/main.css" media="screen" >
-        <script src="js/modernizr/modernizr.min.js"></script>
+        <link rel="stylesheet" href="csss/bootstrap.css" media="screen" >
+        <link rel="stylesheet" href="csss/font-awesome.min.css" media="screen" >
+        <link rel="stylesheet" href="csss/animate-css/animate.min.css" media="screen" >
+        <link rel="stylesheet" href="csss/lobipanel/lobipanel.min.css" media="screen" >
+        <link rel="stylesheet" href="csss/prism/prism.css" media="screen" > <!-- USED FOR DEMO HELP - YOU CAN REMOVE IT -->
+        <link rel="stylesheet" href="csss/main.css" media="screen" >
+        <script src="jss/modernizr/modernizr.min.js"></script>
         <script type="text/javascript">
 function valid()
 {
@@ -96,10 +96,10 @@ return true;
     </head>
     <body class="top-navbar-fixed">
         <div class="main-wrapper">
-            <?php include('includes/topbar.php');?>   
+            <?php include('includes/topbar_user.php');?>   
             <div class="content-wrapper">
                 <div class="content-container">
-<?php include('includes/leftbar.php');?>                   
+<?php include('includes/leftbar_user.php');?>                   
  <!-- /.left-sidebar -->
 
                     <div class="main-page">
@@ -219,18 +219,18 @@ else if($error){?>
         <!-- /.main-wrapper -->
 
         <!-- ========== COMMON JS FILES ========== -->
-        <script src="js/jquery/jquery-2.2.4.min.js"></script>
-        <script src="js/jquery-ui/jquery-ui.min.js"></script>
-        <script src="js/bootstrap/bootstrap.min.js"></script>
-        <script src="js/pace/pace.min.js"></script>
-        <script src="js/lobipanel/lobipanel.min.js"></script>
-        <script src="js/iscroll/iscroll.js"></script>
+        <script src="jss/jquery/jquery-2.2.4.min.js"></script>
+        <script src="jss/jquery-ui/jquery-ui.min.js"></script>
+        <script src="jss/bootstrap/bootstrap.min.js"></script>
+        <script src="jss/pace/pace.min.js"></script>
+        <script src="jss/lobipanel/lobipanel.min.js"></script>
+        <script src="jss/iscroll/iscroll.js"></script>
 
         <!-- ========== PAGE JS FILES ========== -->
-        <script src="js/prism/prism.js"></script>
+        <script src="jss/prism/prism.js"></script>
 
         <!-- ========== THEME JS ========== -->
-        <script src="js/main.js"></script>
+        <script src="jss/main.js"></script>
 
 
 
