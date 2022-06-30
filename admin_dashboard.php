@@ -180,7 +180,15 @@ if(strlen($_SESSION['alogin'])=="")
                                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                         <a class="dashboard-stat bg-primary" href="manage-students.php">
 
-                                            <span class="number counter"></span>
+<?php 
+$sql ="SELECT * from user_login ";  
+if ($result = mysqli_query($con, $sql)) {
+$totalstudents=  mysqli_num_rows( $result );
+}
+?>
+
+                                            <!-- <span class="number counter"></span> -->
+                                            <span class="number counter"><?php echo htmlentities($totalstudents);?></span>
                                             <span class="name">No. Of Users</span>
                                             <span class="bg-icon"><i class="fa fa-users"></i></span>
                                         </a>
@@ -191,7 +199,13 @@ if(strlen($_SESSION['alogin'])=="")
                                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" >
                                         <a class="dashboard-stat bg-danger" href="manage-subjects.php">
 
-                                            <span class="number counter"></span>
+<?php 
+$sql ="SELECT * from certificates";  
+if ($result = mysqli_query($con, $sql)) {
+$totalstudents=  mysqli_num_rows( $result );
+}
+?>
+                                            <span class="number counter"><?php echo htmlentities($totalstudents);?></span>
                                             <span class="name">Total Certificates</span>
                                             <span class="bg-icon"><i class="fa fa-ticket"></i></span>
                                         </a>
@@ -201,8 +215,14 @@ if(strlen($_SESSION['alogin'])=="")
 
                                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" style="margin-top:1%;">
                                         <a class="dashboard-stat bg-warning" href="manage-classes.php">
-                      
-                                            <span class="number counter"></span>
+<?php 
+$sql ="SELECT * from query";  
+if ($result = mysqli_query($con, $sql)) {
+$totalstudents=  mysqli_num_rows( $result );
+}
+?>
+
+                                            <span class="number counter"><?php echo htmlentities($totalstudents);?></span>
                                             <span class="name">Total queries listed</span>
                                             <span class="bg-icon"><i class="fa fa-bank"></i></span>
                                         </a>
@@ -213,9 +233,14 @@ if(strlen($_SESSION['alogin'])=="")
                                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12"  style="margin-top:1%">
                                         <a class="dashboard-stat bg-success" href="manage-results.php">
                                       
-
-                                            <span class="number counter"></span>
-                                            <span class="name">Results Declared</span>
+<?php 
+$sql ="SELECT * from query";  
+if ($result = mysqli_query($con, $sql)) {
+$totalstudents=  mysqli_num_rows( $result );
+}
+?>
+                                            <span class="number counter"><?php echo htmlentities($totalstudents);?></span>
+                                            <span class="name">No of Admin</span>
                                             <span class="bg-icon"><i class="fa fa-file-text"></i></span>
                                         </a>
                                         <!-- /.dashboard-stat -->
