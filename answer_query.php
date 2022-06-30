@@ -1,23 +1,31 @@
-
 <?php
 session_start();
 error_reporting(0);
 include('partials/connection.php');
 if(strlen($_SESSION['alogin'])=="")
-    {   
-    header("Location: admin_dashboard.php"); 
-    }
-    else{
+{   header("Location: index.php"); }else{
+//For Deleting the notice
+
+if($_GET['id'])
+{
+$id=$_GET['id'];
+$sql="delete from tblnotice where id=:id";
+$query = $dbh->prepare($sql);
+$query->bindParam(':id',$id,PDO::PARAM_STR);
+$query->execute();
+echo '<script>alert("Notice deleted.")</script>';
+echo "<script>window.location.href ='answer_notices.php'</script>";
+
+}
 
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
     	<meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Admin Manage Students</title>
+        <title>Admin Manage Notices</title>
         <link rel="stylesheet" href="csss/bootstrap.min.css" media="screen" >
         <link rel="stylesheet" href="csss/font-awesome.min.css" media="screen" >
         <link rel="stylesheet" href="csss/animate-css/animate.min.css" media="screen" >
@@ -59,7 +67,7 @@ if(strlen($_SESSION['alogin'])=="")
                         <div class="container-fluid">
                             <div class="row page-title-div">
                                 <div class="col-md-6">
-                                    <h2 class="title">Manage Queries</h2>
+                                    <h2 class="title">Manage Notices</h2>
                                 
                                 </div>
                                 
@@ -70,8 +78,8 @@ if(strlen($_SESSION['alogin'])=="")
                                 <div class="col-md-6">
                                     <ul class="breadcrumb">
             							<li><a href="admin_dashboard.php"><i class="fa fa-home"></i> Home</a></li>
-                                        <li> Results</li>
-            							<li class="active">Manage Queries</li>
+                                        <li> Classes</li>
+            							<li class="active">Manage Notices</li>
             						</ul>
                                 </div>
                              
@@ -91,7 +99,7 @@ if(strlen($_SESSION['alogin'])=="")
                                         <div class="panel">
                                             <div class="panel-heading">
                                                 <div class="panel-title">
-                                                    <h5>View Query Info</h5>
+                                                    <h5>View Notices Info</h5>
                                                 </div>
                                             </div>
 
@@ -101,23 +109,23 @@ if(strlen($_SESSION['alogin'])=="")
                                                     <thead>
                                                         <tr>
                                                             <th>#</th>
-                                                            <th>Enrollment ID</th>
-                                                            <th>Student Name</th>
-                                                            <th>Message</th>
+                                                            <th>Notice Title</th>
+                                                            <th>Noticle Details</th>
+                                                            <th>Creation Date</th>
                                                             <th>Action</th>
                                                         </tr>
                                                     </thead>
                                                     <tfoot>
                                                         <tr>
                                                           <th>#</th>
-                                                            <th>Enrollment ID</th>
-                                                            <th>Student Name</th>
-                                                            <th>Message</th>
+                                                            <th>Notice Title</th>
+                                                            <th>Noticle Details</th>
+                                                            <th>Creation Date</th>
                                                             <th>Action</th>
                                                         </tr>
                                                     </tfoot>
                                                     <tbody>
-<?php $sql = "SELECT query.enrollment_id,query.name,query.message from query ";
+<?php $sql = "SELECT * from tblnotice";
 $query = $dbh->prepare($sql);
 $query->execute();
 $results=$query->fetchAll(PDO::FETCH_OBJ);
@@ -128,12 +136,12 @@ foreach($results as $result)
 {   ?>
 <tr>
  <td><?php echo htmlentities($cnt);?></td>
-                                                            <td><?php echo htmlentities($result->enrollment_id);?></td>
-                                                            <td><?php echo htmlentities($result->name);?></td>
-                                                            <td><?php echo htmlentities($result->message);?></td>
-                                                             
+                                                            <td><?php echo htmlentities($result->queryTitle);?></td>
+                                                            <td><?php echo htmlentities($result->queryDetails);?></td>
+                                                            <td><?php echo htmlentities($result->postingDate);?></td>
 <td>
-<a href="add_certificate.php?stid=<?php echo htmlentities($result->enrollment_id);?>"><i class="fa fa-edit" title="Edit Record"></i> </a> 
+<a href="answer_query.php?id=<?php echo htmlentities($result->id);?>" onclick="return confirm('Do you really want to delete the notice?');">
+    <i class="fa fa-trash fa-3x" title="Delete this Record" style="color:red;"></i> </a> 
 
 </td>
 </tr>
