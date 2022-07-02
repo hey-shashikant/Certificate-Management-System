@@ -1,4 +1,3 @@
-
 <?php
 require('partials/connection.php');
 
@@ -7,35 +6,37 @@ require('partials/connection.php');
 if(isset($_POST['submit'])){
     $studentname=$_POST['fullanme'];
     $roolid=$_POST['rollid']; 
-    $studentemail=$_POST['emailid']; 
-    $gender=$_POST['gender']; 
-    $dob=$_POST['dob']; 
-    $password = $_POST['password'];
-    $user_exist_query = "SELECT `fullname`, `enrollment_id`, `email_id`, `gender`, `dob`, `password` FROM `student` WHERE enrollment_id = '$roolid' OR email_id = '$studentemail'";
+    $certificateid=$_POST['certificateid'];
+    $issuedby=$_POST['issuedby'];
+    $doi=$_POST['doi'];
+    $doe=$_POST['doe']; 
+    // $password = $_POST['password'];
+    $user_exist_query = "SELECT `fullname`, `enrollment_id`, `certificate_id`, `issued_by`, `doi`, `doe` FROM `certificates` WHERE certificate_id = '$certificateid' ";
     $result = mysqli_query($con,$user_exist_query);
     if($result){
         if(mysqli_num_rows($result) >= 1){
             $result_fetch = mysqli_fetch_assoc($result);
-            if($result_fetch['enrollment_no'] == $_POST['enrollment_no']){
+            if($result_fetch['certificate_id'] == $_POST['certificateid']){
                 echo "
                 <script>
-                    alert(' $result_fetch[enrollment_no] - Username already taken');
+                    alert(' $result_fetch[certificate_id] - Certificate Id already taken');
                     window.location.href='admin_dashboard.php';
                 </script>
                 ";
             }
-            else{
-                echo "
-                <script>
-                    alert(' $result_fetch[email] - E-mail already taken');
-                    window.location.href='admin_dashboard.php';
-                </script>
-                ";
-            }
+            // else{
+            //     echo "
+            //     <script>
+            //         alert(' $result_fetch[email] - E-mail already taken');
+            //         window.location.href='admin_dashboard.php';
+            //     </script>
+            //     ";
+            // }
         }
         else
             {
-            $query = "INSERT INTO `student`(`fullname`, `enrollment_id`, `email_id`, `gender`, `dob`, `password`) VALUES ('$_POST[fullanme]','$_POST[rollid]','$_POST[emailid]','$_POST[gender]','$_POST[dob]','$_POST[password]')";
+            $query = "INSERT INTO `certificates`(`fullname`, `enrollment_id`, `certificate_id`, `issued_by`, `doi`, `doe`) VALUES ('$_POST[fullanme]','$_POST[rollid]','$_POST[certificateid]','$_POST[issuedby]','$_POST[doi]','$_POST[doe]')";    
+            // $query = "INSERT INTO `student`(`fullname`, `enrollment_id`, `email_id`, `gender`, `dob`, `password`) VALUES ('$_POST[fullanme]','$_POST[rollid]','$_POST[emailid]','$_POST[gender]','$_POST[dob]','$_POST[password]')";
             // $query = "INSERT INTO `student`(`fullname`, `enrollment_id`, `email_id`,`gender`,`dob` `password`) VALUES ('$_POST[name]','$_POST[enrollment_no]','$_POST[email]','$_POST[password]')";
             if(mysqli_query($con,$query)){
                 echo "
@@ -106,7 +107,7 @@ if(isset($_POST['submit'])){
                      <div class="container-fluid">
                             <div class="row page-title-div">
                                 <div class="col-md-6">
-                                    <h2 class="title">Student Admission</h2>
+                                    <h2 class="title">Certificate Admission</h2>
                                 
                                 </div>
                                 
@@ -118,7 +119,7 @@ if(isset($_POST['submit'])){
                                     <ul class="breadcrumb">
                                         <li><a href="admin_dashboard.php"><i class="fa fa-home"></i> Home</a></li>
                                 
-                                        <li class="active">Add Student Details</li>
+                                        <li class="active">Add Certificate Details</li>
                                     </ul>
                                 </div>
                              
@@ -136,7 +137,15 @@ if(isset($_POST['submit'])){
                                                 </div>
                                             </div>
                                             <div class="panel-body">
-
+<?php if($msg){?>
+<div class="alert alert-success left-icon-alert" role="alert">
+ <strong>Well done!</strong><?php echo htmlentities($msg); ?>
+ </div><?php } 
+else if($error){?>
+    <div class="alert alert-danger left-icon-alert" role="alert">
+                                            <strong>Oh snap!</strong> <?php echo htmlentities($error); ?>
+                                        </div>
+                                        <?php } ?>
                                                 <form class="form-horizontal" method="post">
 
 <div class="form-group">
@@ -154,41 +163,36 @@ if(isset($_POST['submit'])){
 </div>
 
 <div class="form-group">
-<label for="default" class="col-sm-2 control-label">E-mail id</label>
+<label for="default" class="col-sm-2 control-label">Certificate Id</label>
 <div class="col-sm-10">
-<input type="email" name="emailid" class="form-control" id="email" required="required" autocomplete="off">
+<input type="text" name="certificateid" class="form-control" id="rollid" maxlength="25" required="required" autocomplete="off">
+</div>
+</div>
+
+<div class="form-group">
+<label for="default" class="col-sm-2 control-label">Issued By</label>
+<div class="col-sm-10">
+<input type="text" name="issuedby" class="form-control" id="fullname" required="required" autocomplete="off">
 </div>
 </div>
 
 
 
 <div class="form-group">
-<label for="default" class="col-sm-2 control-label">Gender</label>
+<label for="date" class="col-sm-2 control-label">Date of Issue</label>
 <div class="col-sm-10">
-<input type="radio" name="gender" value="Male" required="required" checked="">Male <input type="radio" name="gender" value="Female" required="required">Female <input type="radio" name="gender" value="Other" required="required">Other
-</div>
-</div>
-
-
-
-
-
-
-
-
-<div class="form-group">
-<label for="date" class="col-sm-2 control-label">DOB</label>
-<div class="col-sm-10">
-    <input type="date"  name="dob" class="form-control" id="date">
+    <input type="date"  name="doi" class="form-control" id="date">
 </div>
 </div>
 
 <div class="form-group">
-<label for="default" class="col-sm-2 control-label">Password</label>
+<label for="date" class="col-sm-2 control-label">Date of Expire</label>
 <div class="col-sm-10">
-<input type="password" name="password" class="form-control" id="password" required="required" autocomplete="off">
+    <input type="date"  name="doe" class="form-control" id="date">
 </div>
 </div>
+
+
                                                     
 
                                                     

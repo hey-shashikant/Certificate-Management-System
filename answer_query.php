@@ -1,9 +1,11 @@
+
 <?php
 session_start();
 error_reporting(0);
 include('partials/connection.php');
-if(strlen($_SESSION['alogin'])=="")
-{   header("Location: index.php"); }else{
+if(strlen($_SESSION['alogin'])==""){   
+header("Location: index.php"); 
+}else{
 //For Deleting the notice
 
 if($_GET['id'])
@@ -14,7 +16,7 @@ $query = $dbh->prepare($sql);
 $query->bindParam(':id',$id,PDO::PARAM_STR);
 $query->execute();
 echo '<script>alert("Notice deleted.")</script>';
-echo "<script>window.location.href ='answer_notices.php'</script>";
+echo "<script>window.location.href ='answer_query.php'</script>";
 
 }
 
@@ -136,11 +138,10 @@ foreach($results as $result)
 {   ?>
 <tr>
  <td><?php echo htmlentities($cnt);?></td>
-                                                            <td><?php echo htmlentities($result->queryTitle);?></td>
-                                                            <td><?php echo htmlentities($result->queryDetails);?></td>
+                                                            
                                                             <td><?php echo htmlentities($result->postingDate);?></td>
 <td>
-<a href="answer_query.php?id=<?php echo htmlentities($result->id);?>" onclick="return confirm('Do you really want to delete the notice?');">
+<a href="manage-notices.php?id=<?php echo htmlentities($result->id);?>" onclick="return confirm('Do you really want to delete the notice?');">
     <i class="fa fa-trash fa-3x" title="Delete this Record" style="color:red;"></i> </a> 
 
 </td>

@@ -42,12 +42,6 @@ include('partials/connection.php');
                     <li class="nav-item">
                         <a class="nav-link" href="#features">Features</a>
                     </li>
-                    <!-- <li class="nav-item">
-                        <a class="nav-link" href="#portfolio">Portfolio</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#pricing">Pricing</a>
-                    </li> -->
                     <li class="nav-item">
                         <a class="nav-link" href="#team">Team</a>
                     </li>
@@ -181,7 +175,7 @@ include('partials/connection.php');
                     <div class="team-member card-effect">
                         <img src="img/shashikant.jfif" alt="">
                         <h5 class="mb-0 mt-4">Shashikant Solanki</h5>
-                        <p>Full Stack Developer</p>
+                        <p>Web Developer</p>
                         <div class="social-icons">
                             <a href="#"><i class='bx bxl-facebook'></i></a>
                             <a href="#"><i class='bx bxl-twitter'></i></a>

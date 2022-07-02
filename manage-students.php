@@ -7,55 +7,35 @@ require('partials/connection.php');
 if(isset($_POST['submit'])){
     $studentname=$_POST['fullanme'];
     $roolid=$_POST['rollid']; 
-    $studentemail=$_POST['emailid']; 
-    $gender=$_POST['gender']; 
-    $dob=$_POST['dob']; 
-    $password = $_POST['password'];
-    $user_exist_query = "SELECT `fullname`, `enrollment_id`, `email_id`, `gender`, `dob`, `password` FROM `student` WHERE enrollment_id = '$roolid' OR email_id = '$studentemail'";
+    // $studentemail=$_POST['emailid']; 
+    $user_exist_query = "SELECT `fullname`, `enrollment_id`, `email_id`, `gender`, `dob`, `password` FROM `student` WHERE enrollment_id = '$roolid' ";
     $result = mysqli_query($con,$user_exist_query);
     if($result){
         if(mysqli_num_rows($result) >= 1){
-            $result_fetch = mysqli_fetch_assoc($result);
-            if($result_fetch['enrollment_no'] == $_POST['enrollment_no']){
-                echo "
-                <script>
-                    alert(' $result_fetch[enrollment_no] - Username already taken');
-                    window.location.href='admin_dashboard.php';
-                </script>
-                ";
-            }
-            else{
-                echo "
-                <script>
-                    alert(' $result_fetch[email] - E-mail already taken');
-                    window.location.href='admin_dashboard.php';
-                </script>
-                ";
+            // $result_fetch = mysqli_fetch_assoc($result);
+            $sql = "DELETE FROM `student` WHERE enrollment_id = '$roolid' ";
+            if (mysqli_query($con, $sql)) {
+                // echo "Record deleted successfully";
+                echo"
+                    <script>
+                    alert('Record Deleted Successfully');
+                    window.location.href='re-enter-student.php';
+                    </script>
+                    ";
+            } 
+            else {
+                echo "Error deleting record: " . mysqli_error($con);
             }
         }
-        else
-            {
-            $query = "INSERT INTO `student`(`fullname`, `enrollment_id`, `email_id`, `gender`, `dob`, `password`) VALUES ('$_POST[fullanme]','$_POST[rollid]','$_POST[emailid]','$_POST[gender]','$_POST[dob]','$_POST[password]')";
-            // $query = "INSERT INTO `student`(`fullname`, `enrollment_id`, `email_id`,`gender`,`dob` `password`) VALUES ('$_POST[name]','$_POST[enrollment_no]','$_POST[email]','$_POST[password]')";
-            if(mysqli_query($con,$query)){
-                echo "
+        else{
+            echo "
                 <script>
-                    alert('Registration Successful');
+                    alert('Record not found.');
                     window.location.href='admin_dashboard.php';
                 </script>
                 ";
-            }
-            else{
-                echo "
-                <script>
-                    alert('Registration Failed.');
-                    window.location.href='admin_dashboard.php';
-                </script>
-                ";
-            }
         }
     }
-   
     else{
         echo"
         <script>
@@ -65,7 +45,6 @@ if(isset($_POST['submit'])){
         ";
     }
 }
-
 ?>
 
 
@@ -106,7 +85,7 @@ if(isset($_POST['submit'])){
                      <div class="container-fluid">
                             <div class="row page-title-div">
                                 <div class="col-md-6">
-                                    <h2 class="title">Student Admission</h2>
+                                    <h2 class="title">Student Dismissal</h2>
                                 
                                 </div>
                                 
@@ -118,7 +97,7 @@ if(isset($_POST['submit'])){
                                     <ul class="breadcrumb">
                                         <li><a href="admin_dashboard.php"><i class="fa fa-home"></i> Home</a></li>
                                 
-                                        <li class="active">Add Student Details</li>
+                                        <li class="active">Re-enter Student Details</li>
                                     </ul>
                                 </div>
                              
@@ -154,47 +133,25 @@ if(isset($_POST['submit'])){
 </div>
 
 <div class="form-group">
+<label for="default" class="col-sm-2 control-label">Re-enter Enrollment Id</label>
+<div class="col-sm-10">
+<input type="text" name="rollid" class="form-control" id="rollid" maxlength="15" required="required" autocomplete="off">
+</div>
+</div>
+
+<!-- <div class="form-group">
 <label for="default" class="col-sm-2 control-label">E-mail id</label>
 <div class="col-sm-10">
 <input type="email" name="emailid" class="form-control" id="email" required="required" autocomplete="off">
 </div>
-</div>
+</div> -->
 
-
-
-<div class="form-group">
-<label for="default" class="col-sm-2 control-label">Gender</label>
-<div class="col-sm-10">
-<input type="radio" name="gender" value="Male" required="required" checked="">Male <input type="radio" name="gender" value="Female" required="required">Female <input type="radio" name="gender" value="Other" required="required">Other
-</div>
-</div>
-
-
-
-
-
-
-
-
-<div class="form-group">
-<label for="date" class="col-sm-2 control-label">DOB</label>
-<div class="col-sm-10">
-    <input type="date"  name="dob" class="form-control" id="date">
-</div>
-</div>
-
-<div class="form-group">
-<label for="default" class="col-sm-2 control-label">Password</label>
-<div class="col-sm-10">
-<input type="password" name="password" class="form-control" id="password" required="required" autocomplete="off">
-</div>
-</div>
-                                                    
+                                            
 
                                                     
                                                     <div class="form-group">
                                                         <div class="col-sm-offset-2 col-sm-10">
-                                                            <button type="submit" name="submit" class="btn btn-primary">Add</button>
+                                                            <button type="submit" name="submit" class="btn btn-primary">Submit</button>
                                                         </div>
                                                     </div>
                                                 </form>

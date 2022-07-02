@@ -40,7 +40,7 @@ if(isset($_POST['submit'])){
             if(mysqli_query($con,$query)){
                 echo "
                 <script>
-                    alert('Registration Successful');
+                    alert('Record Updation Successful');
                     window.location.href='admin_dashboard.php';
                 </script>
                 ";
