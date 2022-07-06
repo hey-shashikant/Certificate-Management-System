@@ -40,31 +40,53 @@
    <li class="has-children">
                                         <a href="#"><i class="fa fa-users"></i> <span>Students</span> <i class="fa fa-angle-right arrow"></i></a>
                                         <ul class="child-nav">
-                                            <li><a href="add-students.php"><i class="fa fa-bars"></i> <span>Add Students</span></a></li>
-                                            <li><a href="manage-students.php"><i class="fa fa fa-server"></i> <span>Manage Students</span></a></li>
+                                        <li><a href="add-students.php"><i class="fa fa-bars"></i> <span>Add Student</span></a></li>
+                                            <li><a href="manage-students.php"><i class="fa fa fa-server"></i> <span>Update Student</span></a></li>
+                                           <li><a href="remove_student.php"><i class="fa fa-newspaper-o"></i> <span>Delete Student</span></a></li>
+                                            <!-- <li><a href="add-students.php"><i class="fa fa-bars"></i> <span>Add Students</span></a></li> -->
+                                            <!-- <li><a href="manage-students.php"><i class="fa fa fa-server"></i> <span>Manage Students</span></a></li> -->
                                            
                                         </ul>
                                     </li>
 <li class="has-children">
                                         <a href="#"><i class="fa fa-info-circle"></i> <span>Certificate</span> <i class="fa fa-angle-right arrow"></i></a>
                                         <ul class="child-nav">
-                                            <li><a href="add-result.php"><i class="fa fa-bars"></i> <span>Add Certificate</span></a></li>
-                                            <li><a href="manage-results.php"><i class="fa fa fa-server"></i> <span>Manage Certificate</span></a></li>
+                                        <li><a href="add-certificate.php"><i class="fa fa-bars"></i> <span>Add Certificate</span></a></li>
+                                            <li><a href="manage-certificate.php"><i class="fa fa fa-server"></i> <span>Update Certificate</span></a></li>
+                                           <li><a href="remove_certificate.php"><i class="fa fa-newspaper-o"></i> <span>Delete Certificate</span></a></li>
+                                            <!-- <li><a href="add-result.php"><i class="fa fa-bars"></i> <span>Add Certificate</span></a></li> -->
+                                            <!-- <li><a href="manage-results.php"><i class="fa fa fa-server"></i> <span>Manage Certificate</span></a></li> -->
                                            
                                         </ul>        </li>
 
 
 <li class="has-children">
+                                        <a href="#"><i class="fa fa-users"></i> <span>Queries</span> <i class="fa fa-angle-right arrow"></i></a>
+                                        <ul class="child-nav">
+                                            <li><a href="answer_query.php"><i class="fa fa-bars"></i> <span>Answer Queries</span></a></li>
+                                           
+                                        </ul>
+                                    </li>
+
+
+
+
+
+
+
+                    <li><a href="admin_change_password.php"><i class="fa fa fa-server"></i> <span> Admin Change Password</span></a></li>
+
+<!-- <li class="has-children">
                                         <a href="#"><i class="fa fa-bell"></i> <span>Notices</span> <i class="fa fa-angle-right arrow"></i></a>
                                         <ul class="child-nav">
                                             <li><a href="add-notice.php"><i class="fa fa-bars"></i> <span>Add Notice</span></a></li>
                                             <li><a href="manage-notices.php"><i class="fa fa fa-server"></i> <span>Manage Notices</span></a></li>
                                            
-                                        </ul>        </li>
+                                        </ul>        </li> -->
 
 
 
-                                        <li><a href="change-password.php"><i class="fa fa fa-server"></i> <span> Admin Change Password</span></a></li>
+                                        <!-- <li><a href="change-password.php"><i class="fa fa fa-server"></i> <span> Admin Change Password</span></a></li> -->
                                            
                             
                             </div>

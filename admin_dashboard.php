@@ -179,7 +179,7 @@ require('partials/connection.php');
                                         <a class="dashboard-stat bg-primary" href="manage-students.php">
 
 <?php 
-$sql ="SELECT * from user_login ";  
+$sql ="SELECT * from student ";  
 if ($result = mysqli_query($con, $sql)) {
 $totalstudents=  mysqli_num_rows( $result );
 }

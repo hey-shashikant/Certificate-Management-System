@@ -62,7 +62,7 @@ if(isset($_POST['submit'])){
         <link rel="stylesheet" href="csss/lobipanel/lobipanel.min.css" media="screen" >
         <link rel="stylesheet" href="csss/prism/prism.css" media="screen" > <!-- USED FOR DEMO HELP - YOU CAN REMOVE IT -->
         <link rel="stylesheet" href="csss/main.css" media="screen" >
-        <script src="js/modernizr/modernizr.min.js"></script>
+        <script src="jss/modernizr/modernizr.min.js"></script>
         <script type="text/javascript">
 function valid()
 {
@@ -114,7 +114,7 @@ return true;
                             <div class="row breadcrumb-div">
                                 <div class="col-md-6">
                                     <ul class="breadcrumb">
-            							<li><a href="dashboard.php"><i class="fa fa-home"></i> Home</a></li>
+            							<li><a href="admin_dashboard.php"><i class="fa fa-home"></i> Home</a></li>
             						
             							<li class="active">Admin change password</li>
             						</ul>
