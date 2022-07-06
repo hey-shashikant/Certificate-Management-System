@@ -7,20 +7,6 @@ header("Location: index.php");
 }else{
 //For Deleting the notice
 
-if($_GET['id'])
-{
-    $id=$_GET['id'];
-    $sql = "DELETE FROM `tblnotice` WHERE id = '$id' ";
-            if (mysqli_query($con, $sql)) {
-                // echo "Record deleted successfully";
-                echo"
-                    <script>
-                    alert('Query Deleted Successfully');
-                    window.location.href='answer_query.php';
-                    </script>
-                    ";
-            } 
-}
 ?>
 
 
@@ -31,7 +17,7 @@ if($_GET['id'])
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
     	<meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Admin Manage Queries</title>
+        <title>View All Students</title>
         <link rel="stylesheet" href="csss/bootstrap.min.css" media="screen" >
         <link rel="stylesheet" href="csss/font-awesome.min.css" media="screen" >
         <link rel="stylesheet" href="csss/animate-css/animate.min.css" media="screen" >
@@ -178,7 +164,7 @@ if($_GET['id'])
                         <div class="container-fluid">
                             <div class="row page-title-div">
                                 <div class="col-md-6">
-                                    <h2 class="title">Manage Queries</h2>
+                                    <h2 class="title">See All Students</h2>
                                 
                                 </div>
                                 
@@ -189,8 +175,8 @@ if($_GET['id'])
                                 <div class="col-md-6">
                                     <ul class="breadcrumb">
             							<li><a href="admin_dashboard.php"><i class="fa fa-home"></i> Home</a></li>
-                                        <li> Queries</li>
-            							<li class="active">Manage Queries</li>
+                                        <li> Students</li>
+            							<li class="active">See All Students</li>
             						</ul>
                                 </div>
                              
@@ -210,7 +196,7 @@ if($_GET['id'])
                                         <div class="panel">
                                             <div class="panel-heading">
                                                 <div class="panel-title">
-                                                    <h5>View Queries Info</h5>
+                                                    <h5>View Students Info</h5>
                                                 </div>
                                             </div>
 
@@ -219,42 +205,41 @@ if($_GET['id'])
                                                 <table id="example" class="display table table-striped table-bordered" cellspacing="0" width="100%">
                                                     <thead>
                                                         <tr>
-                                                            <th>#</th>
-                                                            <th>Query Title</th>
-                                                            <th>Query Details</th>
-                                                            <th>Creation Date</th>
-                                                            <th>Action</th>
+                                                            <th>Enrollment ID</th>
+                                                            <th>Student Name</th>
+                                                            <th>Email ID</th>
+                                                            <th>Gender</th>
+                                                            <th>DOB</th>
+                                                            <th>Password</th>
                                                         </tr>
                                                     </thead>
                                                     <tfoot>
                                                         <tr>
-                                                          <th>#</th>
-                                                            <th>Query Title</th>
-                                                            <th>Query Details</th>
-                                                            <th>Creation Date</th>
-                                                            <th>Action</th>
+                                                            <th>Enrollment ID</th>
+                                                            <th>Student Name</th>
+                                                            <th>Email ID</th>
+                                                            <th>Gender</th>
+                                                            <th>DOB</th>
+                                                            <th>Password</th>
                                                         </tr>
                                                     </tfoot>
                                                     <tbody>
 
                                                     
 <?php
-$query="select * from tblnotice"; // Fetch all the data from the table customers
+$query="select * from student"; // Fetch all the data from the table customers
 $result=mysqli_query($con,$query);
 ?>
 
 <?php 
 while($array=mysqli_fetch_row($result)): ?>
     <tr>
-        <td><?php echo $array[0];?></td>
         <td><?php echo $array[1];?></td>
+        <td><?php echo $array[0];?></td>
         <td><?php echo $array[2];?></td>
         <td><?php echo $array[3];?></td>
-        <td>
-<a href="answer_query.php?id=<?php echo ($array[0]);?>" onclick="return confirm('Do you really want to delete the notice?');">
-    <i class="fa fa-trash fa-3x" title="Delete this Record" style="color:red;"></i> </a> 
-
-</td>
+        <td><?php echo $array[4];?></td>
+        <td><?php echo $array[5];?></td>
     </tr>
     <?php endwhile; ?>
 

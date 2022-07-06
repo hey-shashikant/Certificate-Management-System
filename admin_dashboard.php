@@ -176,7 +176,7 @@ require('partials/connection.php');
                             <div class="container-fluid">
                                 <div class="row">
                                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                        <a class="dashboard-stat bg-primary" href="manage-students.php">
+                                        <a class="dashboard-stat bg-primary" href="students.php">
 
 <?php 
 $sql ="SELECT * from student ";  
@@ -195,7 +195,7 @@ $totalstudents=  mysqli_num_rows( $result );
                                     <!-- /.col-lg-3 col-md-3 col-sm-6 col-xs-12 -->
 
                                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" >
-                                        <a class="dashboard-stat bg-danger" href="manage-subjects.php">
+                                        <a class="dashboard-stat bg-danger" href="certificates.php">
 
 <?php 
 $sql ="SELECT * from certificates";  
@@ -212,7 +212,7 @@ $totalstudents=  mysqli_num_rows( $result );
                                     <!-- /.col-lg-3 col-md-3 col-sm-6 col-xs-12 -->
 
                                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" style="margin-top:1%;">
-                                        <a class="dashboard-stat bg-warning" href="manage-classes.php">
+                                        <a class="dashboard-stat bg-warning" href="answer_query.php">
 <?php 
 $sql ="SELECT * from tblnotice";  
 if ($result = mysqli_query($con, $sql)) {
