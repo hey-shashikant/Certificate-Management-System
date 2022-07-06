@@ -41,7 +41,7 @@ if(isset($_POST['submit'])){
             if(mysqli_query($con,$query)){
                 echo "
                 <script>
-                    alert('Registration Successful');
+                    alert('Certificate Issued Successfully.');
                     window.location.href='admin_dashboard.php';
                 </script>
                 ";
@@ -49,7 +49,7 @@ if(isset($_POST['submit'])){
             else{
                 echo "
                 <script>
-                    alert('Registration Failed.');
+                    alert('Error in Issuing Certificate.');
                     window.location.href='admin_dashboard.php';
                 </script>
                 ";
@@ -137,15 +137,7 @@ if(isset($_POST['submit'])){
                                                 </div>
                                             </div>
                                             <div class="panel-body">
-<?php if($msg){?>
-<div class="alert alert-success left-icon-alert" role="alert">
- <strong>Well done!</strong><?php echo htmlentities($msg); ?>
- </div><?php } 
-else if($error){?>
-    <div class="alert alert-danger left-icon-alert" role="alert">
-                                            <strong>Oh snap!</strong> <?php echo htmlentities($error); ?>
-                                        </div>
-                                        <?php } ?>
+
                                                 <form class="form-horizontal" method="post">
 
 <div class="form-group">

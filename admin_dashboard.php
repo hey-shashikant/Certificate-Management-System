@@ -1,40 +1,38 @@
-<?php
-session_start();
-error_reporting(0);
-include('partials/connection.php');
-if(strlen($_SESSION['alogin'])=="")
-{   header("Location: index.php"); }else{
-?>
+<?php 
+require('partials/connection.php'); 
+// if(strlen($_SESSION['alogin'])=="")
+// {   header("Location: index.php"); }else{
+// ?> 
 
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    	<meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Student Certificate Management System | Dashboard</title>
-        <link rel="stylesheet" href="csss/bootstrap.min.css" media="screen" >
-        <link rel="stylesheet" href="csss/font-awesome.min.css" media="screen" >
-        <link rel="stylesheet" href="csss/animate-css/animate.min.css" media="screen" >
-        <link rel="stylesheet" href="csss/lobipanel/lobipanel.min.css" media="screen" >
-        <link rel="stylesheet" href="csss/toastr/toastr.min.css" media="screen" >
-        <link rel="stylesheet" href="csss/icheck/skins/line/blue.css" >
-        <link rel="stylesheet" href="csss/icheck/skins/line/red.css" >
-        <link rel="stylesheet" href="csss/icheck/skins/line/green.css" >
-        <link rel="stylesheet" href="csss/main.css" media="screen" >
-        <script src="jss/modernizr/modernizr.min.js"></script>
-    </head>
-    <body class="top-navbar-fixed">
-        <div class="main-wrapper">
+<!DOCTYPE html> 
+<html lang="en"> 
+    <head> 
+        <meta charset="utf-8"> 
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">  
+    	<meta name="viewport" content="width=device-width, initial-scale=1">  
+        <title>Student Certificate Management System | Dashboard</title> 
+        <link rel="stylesheet" href="csss/bootstrap.min.css" media="screen" >  
+        <link rel="stylesheet" href="csss/font-awesome.min.css" media="screen" >  
+        <link rel="stylesheet" href="csss/animate-css/animate.min.css" media="screen" >  
+        <link rel="stylesheet" href="csss/lobipanel/lobipanel.min.css" media="screen" >  
+        <link rel="stylesheet" href="csss/toastr/toastr.min.css" media="screen" >   
+        <link rel="stylesheet" href="csss/icheck/skins/line/blue.css" >  
+        <link rel="stylesheet" href="csss/icheck/skins/line/red.css" >  
+        <link rel="stylesheet" href="csss/icheck/skins/line/green.css" >  
+        <link rel="stylesheet" href="csss/main.css" media="screen" >  
+        <script src="jss/modernizr/modernizr.min.js"></script>  
+    </head>  
+    <body class="top-navbar-fixed">  
+        <div class="main-wrapper">  
 
             <!-- starts here topbar -->
-            <nav class="navbar top-navbar bg-white box-shadow">
-            	<div class="container-fluid">
-                    <div class="row">
-                        <div class="navbar-header no-padding">
-                			<a class="navbar-brand" href="admin_dashboard.php">
-                			    SCMS | Admin
-                			</a>
+            <nav class="navbar top-navbar bg-white box-shadow">  
+            	<div class="container-fluid">  
+                    <div class="row">  
+                        <div class="navbar-header no-padding">  
+                			<a class="navbar-brand" href="admin_dashboard.php">  
+                			    SCMS | Admin  
+                			</a>  
                             <span class="small-nav-handle hidden-sm hidden-xs"><i class="fa fa-outdent"></i></span>
                 			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1" aria-expanded="false">
                 				<span class="sr-only">Toggle navigation</span>
@@ -43,13 +41,13 @@ if(strlen($_SESSION['alogin'])=="")
                             <button type="button" class="navbar-toggle mobile-nav-toggle" >
                 				<i class="fa fa-bars"></i>
                 			</button>
-                		</div>
+                		</div> 
                         <!-- /.navbar-header -->
 
-                		<div class="collapse navbar-collapse" id="navbar-collapse-1">
-                			<ul class="nav navbar-nav" data-dropdown-in="fadeIn" data-dropdown-out="fadeOut">
-                                <li class="hidden-sm hidden-xs"><a href="#" class="user-info-handle"><i class="fa fa-user"></i></a></li>
-                                <li class="hidden-sm hidden-xs"><a href="#" class="full-screen-handle"><i class="fa fa-arrows-alt"></i></a></li>
+                		<div class="collapse navbar-collapse" id="navbar-collapse-1"> 
+                			<ul class="nav navbar-nav" data-dropdown-in="fadeIn" data-dropdown-out="fadeOut"> 
+                                <li class="hidden-sm hidden-xs"><a href="#" class="user-info-handle"><i class="fa fa-user"></i></a></li> 
+                                <li class="hidden-sm hidden-xs"><a href="#" class="full-screen-handle"><i class="fa fa-arrows-alt"></i></a></li> 
                        
                 				<li class="hidden-xs hidden-xs"><!-- <a href="#">My Tasks</a> --></li>
                                
@@ -83,8 +81,8 @@ if(strlen($_SESSION['alogin'])=="")
                     <div class="left-sidebar bg-black-300 box-shadow ">
                         <div class="sidebar-content">
                             <div class="user-info closed">
-                                <img src="http://placehold.it/90/c2c2c2?text=User" alt="John Doe" class="img-circle profile-img">
-                                <h6 class="title">Admin</h6>
+                                <img src="http://placehold.it/90/c2c2c2?text=User" alt="Shashikant Solanki" class="img-circle profile-img">
+                                <h6 class="title">Shashikant Solanki</h6>
                                 <small class="info">Administrator</small>
                             </div>
                             <!-- /.user-info -->
@@ -216,7 +214,7 @@ $totalstudents=  mysqli_num_rows( $result );
                                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" style="margin-top:1%;">
                                         <a class="dashboard-stat bg-warning" href="manage-classes.php">
 <?php 
-$sql ="SELECT * from query";  
+$sql ="SELECT * from tblnotice";  
 if ($result = mysqli_query($con, $sql)) {
 $totalstudents=  mysqli_num_rows( $result );
 }
@@ -324,4 +322,4 @@ $totalstudents=  mysqli_num_rows( $result );
         </script>
     </body>
 </html>
-<?php } ?>
+

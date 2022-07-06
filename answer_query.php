@@ -69,7 +69,7 @@ echo "<script>window.location.href ='answer_query.php'</script>";
                         <div class="container-fluid">
                             <div class="row page-title-div">
                                 <div class="col-md-6">
-                                    <h2 class="title">Manage Notices</h2>
+                                    <h2 class="title">Manage Queries</h2>
                                 
                                 </div>
                                 
@@ -80,8 +80,8 @@ echo "<script>window.location.href ='answer_query.php'</script>";
                                 <div class="col-md-6">
                                     <ul class="breadcrumb">
             							<li><a href="admin_dashboard.php"><i class="fa fa-home"></i> Home</a></li>
-                                        <li> Classes</li>
-            							<li class="active">Manage Notices</li>
+                                        <li> Query</li>
+            							<li class="active">Manage Queries</li>
             						</ul>
                                 </div>
                              
@@ -101,7 +101,7 @@ echo "<script>window.location.href ='answer_query.php'</script>";
                                         <div class="panel">
                                             <div class="panel-heading">
                                                 <div class="panel-title">
-                                                    <h5>View Notices Info</h5>
+                                                    <h5>View Queries Info</h5>
                                                 </div>
                                             </div>
 
@@ -111,8 +111,8 @@ echo "<script>window.location.href ='answer_query.php'</script>";
                                                     <thead>
                                                         <tr>
                                                             <th>#</th>
-                                                            <th>Notice Title</th>
-                                                            <th>Noticle Details</th>
+                                                            <th>Query Title</th>
+                                                            <th>Query Details</th>
                                                             <th>Creation Date</th>
                                                             <th>Action</th>
                                                         </tr>
@@ -120,8 +120,8 @@ echo "<script>window.location.href ='answer_query.php'</script>";
                                                     <tfoot>
                                                         <tr>
                                                           <th>#</th>
-                                                            <th>Notice Title</th>
-                                                            <th>Noticle Details</th>
+                                                            <th>Query Title</th>
+                                                            <th>Query Details</th>
                                                             <th>Creation Date</th>
                                                             <th>Action</th>
                                                         </tr>

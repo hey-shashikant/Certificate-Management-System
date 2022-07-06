@@ -177,9 +177,9 @@ include('partials/connection.php');
                         <h5 class="mb-0 mt-4">Shashikant Solanki</h5>
                         <p>Web Developer</p>
                         <div class="social-icons">
-                            <a href="#"><i class='bx bxl-facebook'></i></a>
-                            <a href="#"><i class='bx bxl-twitter'></i></a>
-                            <a href="#"><i class='bx bxl-instagram-alt'></i></a>
+                            <a href="https://www.facebook.com/shashikant.solanki.581"><i class='bx bxl-facebook'></i></a>
+                            <a href="https://twitter.com/cyborg9303"><i class='bx bxl-twitter'></i></a>
+                            <a href="https://www.instagram.com/cyborg9303/"><i class='bx bxl-instagram-alt'></i></a>
                         </div>
                     </div>
                 </div>
@@ -264,6 +264,7 @@ include('partials/connection.php');
                         placeholder="Enter Message"></textarea>
                 </div>
                 <div class="col-md-10 d-grid">
+                    <a href="mailto:shashikantsolanki042@gmail.com"> Send email </a>
                     <button class="btn btn-primary">Contact</button>
                 </div>
             </form>
@@ -311,15 +312,15 @@ include('partials/connection.php');
             <div class="container">
                 <div class="row">
                     <div class="col-md-6">
-                        <p class="mb-0">© 2020 copyright all right reserved | Designed with <i
+                        <p class="mb-0">© 2022 copyright all right reserved | Designed with <i
                             class="bx bx-heart text-danger"></i> by
                             <a>Shashikant Solanki</a></p>
                     </div>
                     <div class="col-md-6">
                         <div class="social-icons">
-                            <a href="#"><i class='bx bxl-facebook'></i></a>
-                            <a href="#"><i class='bx bxl-twitter'></i></a>
-                            <a href="#"><i class='bx bxl-instagram-alt'></i></a>
+                            <a href="https://www.facebook.com/shashikant.solanki.581"><i class='bx bxl-facebook'></i></a>
+                            <a href="https://twitter.com/cyborg9303"><i class='bx bxl-twitter'></i></a>
+                            <a href="https://www.instagram.com/cyborg9303/"><i class='bx bxl-instagram-alt'></i></a>
                         </div>
                     </div>
                 </div>
