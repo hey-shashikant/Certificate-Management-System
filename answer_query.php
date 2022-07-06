@@ -9,13 +9,17 @@ header("Location: index.php");
 
 if($_GET['id'])
 {
-$id=$_GET['id'];
-$sql="delete from tblnotice where id=:id";
-$query = $dbh->prepare($sql);
-$query->bindParam(':id',$id,PDO::PARAM_STR);
-$query->execute();
-echo '<script>alert("Notice deleted.")</script>';
-echo "<script>window.location.href ='answer_query.php'</script>";
+    $id=$_GET['id'];
+    $sql = "DELETE FROM `tblnotice` WHERE id = '$id' ";
+            if (mysqli_query($con, $sql)) {
+                // echo "Record deleted successfully";
+                echo"
+                    <script>
+                    alert('Query Deleted Successfully');
+                    window.location.href='answer_query.php';
+                    </script>
+                    ";
+            } 
 }
 ?>
 
@@ -219,6 +223,7 @@ echo "<script>window.location.href ='answer_query.php'</script>";
                                                             <th>Query Title</th>
                                                             <th>Query Details</th>
                                                             <th>Creation Date</th>
+                                                            <th>Action</th>
                                                         </tr>
                                                     </thead>
                                                     <tfoot>
@@ -227,6 +232,7 @@ echo "<script>window.location.href ='answer_query.php'</script>";
                                                             <th>Query Title</th>
                                                             <th>Query Details</th>
                                                             <th>Creation Date</th>
+                                                            <th>Action</th>
                                                         </tr>
                                                     </tfoot>
                                                     <tbody>
@@ -244,6 +250,11 @@ while($array=mysqli_fetch_row($result)): ?>
         <td><?php echo $array[1];?></td>
         <td><?php echo $array[2];?></td>
         <td><?php echo $array[3];?></td>
+        <td>
+<a href="answer_query.php?id=<?php echo ($array[0]);?>" onclick="return confirm('Do you really want to delete the notice?');">
+    <i class="fa fa-trash fa-3x" title="Delete this Record" style="color:red;"></i> </a> 
+
+</td>
     </tr>
     <?php endwhile; ?>
 ?>
