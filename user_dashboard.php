@@ -83,8 +83,8 @@ if(strlen($_SESSION['alogin'])=="")
                     <div class="left-sidebar bg-black-300 box-shadow ">
                         <div class="sidebar-content">
                             <div class="user-info closed">
-                                <img src="http://placehold.it/90/c2c2c2?text=User" alt="John Doe" class="img-circle profile-img">
-                                <h6 class="title">User</h6>
+                                <img src="http://placehold.it/90/c2c2c2?text=User" alt="Shashikant Solanki" class="img-circle profile-img">
+                                <h6 class="title">Shashikant Solanki</h6>
                                 <small class="info">Student</small>
                             </div>
                             <!-- /.user-info -->
@@ -173,47 +173,23 @@ if(strlen($_SESSION['alogin'])=="")
                                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                         <a class="dashboard-stat bg-primary" href="manage-students.php">
 
-                                            <span class="number counter"></span>
-                                            <span class="name">Regd Users</span>
+<?php 
+$sql ="SELECT * from certificates";  
+if ($result = mysqli_query($con, $sql)) {
+$totalstudents=  mysqli_num_rows( $result );
+}
+?>
+
+                                            <!-- <span class="number counter"></span> -->
+                                            <span class="number counter"><?php echo htmlentities($totalstudents);?></span>
+                                            <span class="name">No. Of Certificate for User</span>
                                             <span class="bg-icon"><i class="fa fa-users"></i></span>
                                         </a>
                                         <!-- /.dashboard-stat -->
                                     </div>
                                     <!-- /.col-lg-3 col-md-3 col-sm-6 col-xs-12 -->
 
-                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" >
-                                        <a class="dashboard-stat bg-danger" href="manage-subjects.php">
-
-                                            <span class="number counter"></span>
-                                            <span class="name">Subjects Listed</span>
-                                            <span class="bg-icon"><i class="fa fa-ticket"></i></span>
-                                        </a>
-                                        <!-- /.dashboard-stat -->
-                                    </div>
-                                    <!-- /.col-lg-3 col-md-3 col-sm-6 col-xs-12 -->
-
-                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" style="margin-top:1%;">
-                                        <a class="dashboard-stat bg-warning" href="manage-classes.php">
-                      
-                                            <span class="number counter"></span>
-                                            <span class="name">Total classes listed</span>
-                                            <span class="bg-icon"><i class="fa fa-bank"></i></span>
-                                        </a>
-                                        <!-- /.dashboard-stat -->
-                                    </div>
-                                    <!-- /.col-lg-3 col-md-3 col-sm-6 col-xs-12 -->
-
-                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12"  style="margin-top:1%">
-                                        <a class="dashboard-stat bg-success" href="manage-results.php">
-                                      
-
-                                            <span class="number counter"></span>
-                                            <span class="name">Results Declared</span>
-                                            <span class="bg-icon"><i class="fa fa-file-text"></i></span>
-                                        </a>
-                                        <!-- /.dashboard-stat -->
-                                    </div>
-                                    <!-- /.col-lg-3 col-md-3 col-sm-6 col-xs-12 -->
+                          
 
                                 </div>
                                 <!-- /.row -->
