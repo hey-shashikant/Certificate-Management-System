@@ -219,7 +219,6 @@ echo "<script>window.location.href ='answer_query.php'</script>";
                                                             <th>Query Title</th>
                                                             <th>Query Details</th>
                                                             <th>Creation Date</th>
-                                                            <th>Action</th>
                                                         </tr>
                                                     </thead>
                                                     <tfoot>
@@ -228,11 +227,26 @@ echo "<script>window.location.href ='answer_query.php'</script>";
                                                             <th>Query Title</th>
                                                             <th>Query Details</th>
                                                             <th>Creation Date</th>
-                                                            <th>Action</th>
                                                         </tr>
                                                     </tfoot>
                                                     <tbody>
-                                                       
+
+                                                    
+<?php
+$query="select * from tblnotice"; // Fetch all the data from the table customers
+$result=mysqli_query($con,$query);
+?>
+
+<?php 
+while($array=mysqli_fetch_row($result)): ?>
+    <tr>
+        <td><?php echo $array[0];?></td>
+        <td><?php echo $array[1];?></td>
+        <td><?php echo $array[2];?></td>
+        <td><?php echo $array[3];?></td>
+    </tr>
+    <?php endwhile; ?>
+?>
                                                     
                                                     </tbody>
                                                 </table>
