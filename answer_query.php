@@ -1,4 +1,3 @@
-
 <?php
 session_start();
 error_reporting(0);
@@ -17,17 +16,18 @@ $query->bindParam(':id',$id,PDO::PARAM_STR);
 $query->execute();
 echo '<script>alert("Notice deleted.")</script>';
 echo "<script>window.location.href ='answer_query.php'</script>";
-
 }
-
 ?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
     	<meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Admin Manage Notices</title>
+        <title>Admin Manage Queries</title>
         <link rel="stylesheet" href="csss/bootstrap.min.css" media="screen" >
         <link rel="stylesheet" href="csss/font-awesome.min.css" media="screen" >
         <link rel="stylesheet" href="csss/animate-css/animate.min.css" media="screen" >
@@ -37,7 +37,7 @@ echo "<script>window.location.href ='answer_query.php'</script>";
         <link rel="stylesheet" href="csss/main.css" media="screen" >
         <script src="jss/modernizr/modernizr.min.js"></script>
           <style>
-        .errorWrap {
+.errorWrap {
     padding: 10px;
     margin: 0 0 20px 0;
     background: #fff;
@@ -59,11 +59,116 @@ echo "<script>window.location.href ='answer_query.php'</script>";
         <div class="main-wrapper">
 
             <!-- ========== TOP NAVBAR ========== -->
-   <?php include('includes/topbar.php');?> 
+     <nav class="navbar top-navbar bg-white box-shadow">
+            	<div class="container-fluid">
+                    <div class="row">
+                        <div class="navbar-header no-padding">
+                			<a class="navbar-brand" href="admin_dashboard.php">
+                			    SCMS | Admin
+                			</a>
+                            <span class="small-nav-handle hidden-sm hidden-xs"><i class="fa fa-outdent"></i></span>
+                			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1" aria-expanded="false">
+                				<span class="sr-only">Toggle navigation</span>
+                				<i class="fa fa-ellipsis-v"></i>
+                			</button>
+                            <button type="button" class="navbar-toggle mobile-nav-toggle" >
+                				<i class="fa fa-bars"></i>
+                			</button>
+                		</div>
+                        <!-- /.navbar-header -->
+
+                		<div class="collapse navbar-collapse" id="navbar-collapse-1">
+                			<ul class="nav navbar-nav" data-dropdown-in="fadeIn" data-dropdown-out="fadeOut">
+                                <li class="hidden-sm hidden-xs"><a href="#" class="user-info-handle"><i class="fa fa-user"></i></a></li>
+                                <li class="hidden-sm hidden-xs"><a href="#" class="full-screen-handle"><i class="fa fa-arrows-alt"></i></a></li>
+                       
+                				<li class="hidden-xs hidden-xs"><!-- <a href="#">My Tasks</a> --></li>
+                               
+                			</ul>
+                            <!-- /.nav navbar-nav -->
+
+                			<ul class="nav navbar-nav navbar-right" data-dropdown-in="fadeIn" data-dropdown-out="fadeOut">
+                             
+                				
+                				    <li><a href="logout.php" class="color-danger text-center"><i class="fa fa-sign-out"></i> Logout</a></li>
+                					
+                		
+                            
+                			</ul>
+                            <!-- /.nav navbar-nav navbar-right -->
+                		</div>
+                		<!-- /.navbar-collapse -->
+                    </div>
+                    <!-- /.row -->
+            	</div>
+            	<!-- /.container-fluid -->
+            </nav>
+ 
             <!-- ========== WRAPPER FOR BOTH SIDEBARS & MAIN CONTENT ========== -->
             <div class="content-wrapper">
                 <div class="content-container">
-<?php include('includes/leftbar.php');?>  
+<div class="left-sidebar bg-black-300 box-shadow ">
+                        <div class="sidebar-content">
+                            <div class="user-info closed">
+                                <img src="http://placehold.it/90/c2c2c2?text=User" alt="Shashikant Solanki" class="img-circle profile-img">
+                                <h6 class="title">Shashikant Solanki</h6>
+                                <small class="info">Administrator</small>
+                            </div>
+                            <!-- /.user-info -->
+
+                            <div class="sidebar-nav">
+                                <ul class="side-nav color-gray">
+                                    <li class="nav-header">
+                                        <span class="">Main Category</span>
+                                    </li>
+                                    <li>
+                                        <a href="admin_dashboard.php"><i class="fa fa-dashboard"></i> <span>Dashboard</span> </a>
+                                     
+                                    </li>
+
+                                    <li class="nav-header">
+                                        <span class="">Appearance</span>
+                                    </li>
+                                    <li class="has-children">
+                                        <a href="#"><i class="fa fa-file-text"></i> <span>Students</span> <i class="fa fa-angle-right arrow"></i></a>
+                                        <ul class="child-nav">
+                                            <li><a href="add-students.php"><i class="fa fa-bars"></i> <span>Add Student</span></a></li>
+                                            <li><a href="manage-students.php"><i class="fa fa fa-server"></i> <span>Update Student</span></a></li>
+                                           <li><a href="remove_student.php"><i class="fa fa-newspaper-o"></i> <span>Delete Student</span></a></li>
+
+                                           
+                                        </ul>
+                                    </li>
+  <li class="has-children">
+                                        <a href="#"><i class="fa fa-file-text"></i> <span>Certificate</span> <i class="fa fa-angle-right arrow"></i></a>
+                                        <ul class="child-nav">
+                                            <li><a href="add-certificate.php"><i class="fa fa-bars"></i> <span>Add Certificate</span></a></li>
+                                            <li><a href="manage-certificate.php"><i class="fa fa fa-server"></i> <span>Update Certificate</span></a></li>
+                                           <li><a href="remove_certificate.php"><i class="fa fa-newspaper-o"></i> <span>Delete Certificate</span></a></li>
+                                        </ul>
+                                    </li>
+   <li class="has-children">
+                                        <a href="#"><i class="fa fa-users"></i> <span>Queries</span> <i class="fa fa-angle-right arrow"></i></a>
+                                        <ul class="child-nav">
+                                            <li><a href="answer_query.php"><i class="fa fa-bars"></i> <span>Answer Queries</span></a></li>
+                                           
+                                        </ul>
+                                    </li>
+
+
+
+
+
+
+
+                    <li><a href="admin_change_password.php"><i class="fa fa fa-server"></i> <span> Admin Change Password</span></a></li>
+                                           
+                            
+                            </div>
+                            <!-- /.sidebar-nav -->
+                        </div>
+                        <!-- /.sidebar-content -->
+                    </div>  
 
                     <div class="main-page">
                         <div class="container-fluid">
@@ -80,7 +185,7 @@ echo "<script>window.location.href ='answer_query.php'</script>";
                                 <div class="col-md-6">
                                     <ul class="breadcrumb">
             							<li><a href="admin_dashboard.php"><i class="fa fa-home"></i> Home</a></li>
-                                        <li> Query</li>
+                                        <li> Queries</li>
             							<li class="active">Manage Queries</li>
             						</ul>
                                 </div>
@@ -127,26 +232,6 @@ echo "<script>window.location.href ='answer_query.php'</script>";
                                                         </tr>
                                                     </tfoot>
                                                     <tbody>
-<?php $sql = "SELECT * from tblnotice";
-$query = $dbh->prepare($sql);
-$query->execute();
-$results=$query->fetchAll(PDO::FETCH_OBJ);
-$cnt=1;
-if($query->rowCount() > 0)
-{
-foreach($results as $result)
-{   ?>
-<tr>
- <td><?php echo htmlentities($cnt);?></td>
-                                                            
-                                                            <td><?php echo htmlentities($result->postingDate);?></td>
-<td>
-<a href="manage-notices.php?id=<?php echo htmlentities($result->id);?>" onclick="return confirm('Do you really want to delete the notice?');">
-    <i class="fa fa-trash fa-3x" title="Delete this Record" style="color:red;"></i> </a> 
-
-</td>
-</tr>
-<?php $cnt=$cnt+1;}} ?>
                                                        
                                                     
                                                     </tbody>
@@ -217,5 +302,6 @@ foreach($results as $result)
         </script>
     </body>
 </html>
-<?php } ?>
 
+
+<?php } ?>
