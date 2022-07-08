@@ -1,5 +1,5 @@
 <?php
-session_start();
+// session_start();
 error_reporting(0);
 include('partials/connection.php');
 if(strlen($_SESSION['alogin'])=="")
@@ -171,7 +171,7 @@ if(strlen($_SESSION['alogin'])=="")
                             <div class="container-fluid">
                                 <div class="row">
                                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                        <a class="dashboard-stat bg-primary" href="manage-students.php">
+                                        <a class="dashboard-stat bg-primary" href="student_certificate.php">
 
 <?php 
 $sql ="SELECT * from certificates";  

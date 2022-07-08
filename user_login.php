@@ -1,5 +1,10 @@
 <?php
+session_start();
+error_reporting(0);
 include('partials/connection.php');
+if(strlen($_SESSION['alogin'])==""){   
+header("Location: index.php"); 
+}else{
 
 // $uname=$_POST['username'];
 // $password=md5($_POST['password']);
@@ -8,7 +13,7 @@ if(isset($_POST['login'])){
     // $username = $_POST['user_id'];
     $username=$_POST['username'];
     $password=($_POST['password']);
-    $user_exist_query = "SELECT * FROM `user_login` WHERE user_id = '$username' ";
+    $user_exist_query = "SELECT * FROM `student` WHERE enrollment_id = '$username' ";
     $result = mysqli_query($con,$user_exist_query);
   //   $count = mysqli_num_rows($result);
   //   echo $count;
@@ -163,3 +168,5 @@ if(isset($_POST['login'])){
         <!-- ========== ADD custom.js FILE BELOW WITH YOUR CHANGES ========== -->
     </body>
 </html>
+
+<?php } ?>
