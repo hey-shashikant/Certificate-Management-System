@@ -38,18 +38,16 @@
                                         </ul> -->
                                     </li>
    <li class="has-children">
-                                        <a href="#"><i class="fa fa-users"></i> <span>View Account Detail </span> <i class="fa fa-angle-right arrow"></i></a>
+                                        <a href="#"><i class="fa fa-users"></i> <span>View Account Details</span> <i class="fa fa-angle-right arrow"></i></a>
                                         <ul class="child-nav">
-                                            <li><a href="add-students.php"><i class="fa fa-bars"></i> <span>Add Students</span></a></li>
-                                            <li><a href="manage-students.php"><i class="fa fa fa-server"></i> <span>Manage Students</span></a></li>
+                                            <li><a href="#"><i class="fa fa-bars"></i> <span>View Details</span></a></li>
                                            
                                         </ul>
                                     </li>
 <li class="has-children">
-                                        <a href="#"><i class="fa fa-info-circle"></i> <span>View Certificate</span> <i class="fa fa-angle-right arrow"></i></a>
+                                        <a href="#"><i class="fa fa-info-circle"></i> <span>Certificates</span> <i class="fa fa-angle-right arrow"></i></a>
                                         <ul class="child-nav">
-                                            <li><a href="add-result.php"><i class="fa fa-bars"></i> <span>Add Certificate</span></a></li>
-                                            <li><a href="manage-results.php"><i class="fa fa fa-server"></i> <span>Manage Certificate</span></a></li>
+                                            <li><a href="user_certificates.php"><i class="fa fa-bars"></i> <span>View Certificate</span></a></li>
                                            
                                         </ul>        </li>
 
@@ -57,8 +55,7 @@
 <li class="has-children">
                                         <a href="#"><i class="fa fa-bell"></i> <span>Queries</span> <i class="fa fa-angle-right arrow"></i></a>
                                         <ul class="child-nav">
-                                            <li><a href="add_query.php"><i class="fa fa-bars"></i> <span>Add Query</span></a></li>
-                                            <!-- <li><a href="manage-notices.php"><i class="fa fa fa-server"></i> <span>Manage Notices</span></a></li> -->
+                                            <li><a href="insert_query.php"><i class="fa fa-bars"></i> <span>Add Query</span></a></li>
                                            
                                         </ul>        </li>
 
@@ -66,7 +63,7 @@
 
                                         <li><a href="user_change_password.php"><i class="fa fa fa-server"></i> <span> User Change Password</span></a></li>
                                            
-                            
+
                             </div>
                             <!-- /.sidebar-nav -->
                         </div>

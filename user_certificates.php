@@ -1,10 +1,15 @@
 <?php
-// session_start();
+session_start();
 error_reporting(0);
 include('partials/connection.php');
-if(strlen($_SESSION['alogin'])=="")
-{   header("Location: index.php"); }else{
+if(strlen($_SESSION['alogin'])==""){   
+header("Location: index.php"); 
+}else{
+//For Deleting the notice
+
 ?>
+
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -12,27 +17,43 @@ if(strlen($_SESSION['alogin'])=="")
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
     	<meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Student Certificate Management System | Dashboard</title>
+        <title>View All Students</title>
         <link rel="stylesheet" href="csss/bootstrap.min.css" media="screen" >
         <link rel="stylesheet" href="csss/font-awesome.min.css" media="screen" >
         <link rel="stylesheet" href="csss/animate-css/animate.min.css" media="screen" >
         <link rel="stylesheet" href="csss/lobipanel/lobipanel.min.css" media="screen" >
-        <link rel="stylesheet" href="csss/toastr/toastr.min.css" media="screen" >
-        <link rel="stylesheet" href="csss/icheck/skins/line/blue.css" >
-        <link rel="stylesheet" href="csss/icheck/skins/line/red.css" >
-        <link rel="stylesheet" href="csss/icheck/skins/line/green.css" >
+        <link rel="stylesheet" href="csss/prism/prism.css" media="screen" > <!-- USED FOR DEMO HELP - YOU CAN REMOVE IT -->
+        <link rel="stylesheet" type="text/css" href="jss/DataTables/datatables.min.css"/>
         <link rel="stylesheet" href="csss/main.css" media="screen" >
         <script src="jss/modernizr/modernizr.min.js"></script>
+          <style>
+.errorWrap {
+    padding: 10px;
+    margin: 0 0 20px 0;
+    background: #fff;
+    border-left: 4px solid #dd3d36;
+    -webkit-box-shadow: 0 1px 1px 0 rgba(0,0,0,.1);
+    box-shadow: 0 1px 1px 0 rgba(0,0,0,.1);
+}
+.succWrap{
+    padding: 10px;
+    margin: 0 0 20px 0;
+    background: #fff;
+    border-left: 4px solid #5cb85c;
+    -webkit-box-shadow: 0 1px 1px 0 rgba(0,0,0,.1);
+    box-shadow: 0 1px 1px 0 rgba(0,0,0,.1);
+}
+        </style>
     </head>
     <body class="top-navbar-fixed">
         <div class="main-wrapper">
 
-            <!-- starts here topbar -->
-            <nav class="navbar top-navbar bg-white box-shadow">
+            <!-- ========== TOP NAVBAR ========== -->
+     <nav class="navbar top-navbar bg-white box-shadow">
             	<div class="container-fluid">
                     <div class="row">
                         <div class="navbar-header no-padding">
-                			<a class="navbar-brand" href="user_dashboard.php">
+                			<a class="navbar-brand" href="admin_dashboard.php">
                 			    SCMS | User
                 			</a>
                             <span class="small-nav-handle hidden-sm hidden-xs"><i class="fa fa-outdent"></i></span>
@@ -72,20 +93,16 @@ if(strlen($_SESSION['alogin'])=="")
             	</div>
             	<!-- /.container-fluid -->
             </nav>
-
-            <!-- ends here top bar -->
-              
+ 
+            <!-- ========== WRAPPER FOR BOTH SIDEBARS & MAIN CONTENT ========== -->
             <div class="content-wrapper">
                 <div class="content-container">
-
-                    <!-- leftbar starts here -->
-
-                    <div class="left-sidebar bg-black-300 box-shadow ">
+<div class="left-sidebar bg-black-300 box-shadow ">
                         <div class="sidebar-content">
                             <div class="user-info closed">
                                 <img src="http://placehold.it/90/c2c2c2?text=User" alt="Shashikant Solanki" class="img-circle profile-img">
                                 <h6 class="title">Shashikant Solanki</h6>
-                                <small class="info">Student</small>
+                                <small class="info">Administrator</small>
                             </div>
                             <!-- /.user-info -->
 
@@ -95,7 +112,7 @@ if(strlen($_SESSION['alogin'])=="")
                                         <span class="">Main Category</span>
                                     </li>
                                     <li>
-                                        <a href="user_dashboard.php"><i class="fa fa-dashboard"></i> <span>Dashboard</span> </a>
+                                        <a href="admin_dashboard.php"><i class="fa fa-dashboard"></i> <span>Dashboard</span> </a>
                                      
                                     </li>
 
@@ -129,7 +146,7 @@ if(strlen($_SESSION['alogin'])=="")
 <li class="has-children">
                                         <a href="#"><i class="fa fa-info-circle"></i> <span>Certificates</span> <i class="fa fa-angle-right arrow"></i></a>
                                         <ul class="child-nav">
-                                            <li><a href="temp.php"><i class="fa fa-bars"></i> <span>View Certificate</span></a></li>
+                                            <li><a href="user_certificates.php"><i class="fa fa-bars"></i> <span>View Certificate</span></a></li>
                                            
                                         </ul>        </li>
 
@@ -150,49 +167,117 @@ if(strlen($_SESSION['alogin'])=="")
                             <!-- /.sidebar-nav -->
                         </div>
                         <!-- /.sidebar-content -->
-                    </div>
-                    <!-- left bar ends here -->
+                    </div>  
 
                     <div class="main-page">
                         <div class="container-fluid">
                             <div class="row page-title-div">
-                                <div class="col-sm-6">
-                                    <h2 class="title">Dashboard</h2>
-                                  
+                                <div class="col-md-6">
+                                    <h2 class="title">See All Certificates</h2>
+                                
                                 </div>
-                                <!-- /.col-sm-6 -->
+                                
+                                <!-- /.col-md-6 text-right -->
                             </div>
                             <!-- /.row -->
-                      
+                            <div class="row breadcrumb-div">
+                                <div class="col-md-6">
+                                    <ul class="breadcrumb">
+            							<li><a href="admin_dashboard.php"><i class="fa fa-home"></i> Home</a></li>
+                                        <li> Students</li>
+            							<li class="active">See All Certificates</li>
+            						</ul>
+                                </div>
+                             
+                            </div>
+                            <!-- /.row -->
                         </div>
                         <!-- /.container-fluid -->
 
                         <section class="section">
                             <div class="container-fluid">
-                                <div class="row">
-                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                        <a class="dashboard-stat bg-primary" href="student_certificate.php">
 
-<?php 
-$sql ="SELECT * from certificates";  
-if ($result = mysqli_query($con, $sql)) {
-$totalstudents=  mysqli_num_rows( $result );
-}
+                             
+
+                                <div class="row">
+                                    <div class="col-md-12">
+
+                                        <div class="panel">
+                                            <div class="panel-heading">
+                                                <div class="panel-title">
+                                                    <h5>View Certificates Info</h5>
+                                                </div>
+                                            </div>
+
+                                            <div class="panel-body p-20">
+
+                                                <table id="example" class="display table table-striped table-bordered" cellspacing="0" width="100%">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Enrollment ID</th>
+                                                            <th>Student Name</th>
+                                                            <th>Certificate ID</th>
+                                                            <th>Issued By</th>
+                                                            <th>DOI</th>
+                                                            <th>DOE</th>
+                                                            <th>Action</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tfoot>
+                                                        <tr>
+                                                            <th>Enrollment ID</th>
+                                                            <th>Student Name</th>
+                                                            <th>Certificate ID</th>
+                                                            <th>Issued By</th>
+                                                            <th>DOI</th>
+                                                            <th>DOE</th>
+                                                            <th>Action</th>
+                                                        </tr>
+                                                    </tfoot>
+                                                    <tbody>
+
+                                                    
+<?php
+$query="select * from certificates where enrollment_id = '$username'"; // Fetch all the data from the table customers
+$result=mysqli_query($con,$query);
 ?>
 
-                                            <!-- <span class="number counter"></span> -->
-                                            <span class="number counter"><?php echo htmlentities($totalstudents);?></span>
-                                            <span class="name">No. Of Certificate for User</span>
-                                            <span class="bg-icon"><i class="fa fa-users"></i></span>
-                                        </a>
-                                        <!-- /.dashboard-stat -->
-                                    </div>
-                                    <!-- /.col-lg-3 col-md-3 col-sm-6 col-xs-12 -->
+<?php 
+while($array=mysqli_fetch_row($result)): ?>
+    <tr>
+        <td><?php echo $array[1];?></td>
+        <td><?php echo $array[0];?></td>
+        <td><?php echo $array[2];?></td>
+        <td><?php echo $array[3];?></td>
+        <td><?php echo $array[4];?></td>
+        <td><?php echo $array[5];?></td>
+        <td><a href="view.php?id=$row['id']">View</a></td> 
+    </tr>
+    <?php endwhile; ?>
 
-                          
+                                                    
+                                                    </tbody>
+                                                </table>
+
+                                         
+                                                <!-- /.col-md-12 -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- /.col-md-6 -->
+
+                                                               
+                                                </div>
+                                                <!-- /.col-md-12 -->
+                                            </div>
+                                        </div>
+                                        <!-- /.panel -->
+                                    </div>
+                                    <!-- /.col-md-6 -->
 
                                 </div>
                                 <!-- /.row -->
+
                             </div>
                             <!-- /.container-fluid -->
                         </section>
@@ -202,6 +287,7 @@ $totalstudents=  mysqli_num_rows( $result );
                     <!-- /.main-page -->
 
                     
+
                 </div>
                 <!-- /.content-container -->
             </div>
@@ -212,7 +298,6 @@ $totalstudents=  mysqli_num_rows( $result );
 
         <!-- ========== COMMON JS FILES ========== -->
         <script src="jss/jquery/jquery-2.2.4.min.js"></script>
-        <script src="jss/jquery-ui/jquery-ui.min.js"></script>
         <script src="jss/bootstrap/bootstrap.min.js"></script>
         <script src="jss/pace/pace.min.js"></script>
         <script src="jss/lobipanel/lobipanel.min.js"></script>
@@ -220,52 +305,25 @@ $totalstudents=  mysqli_num_rows( $result );
 
         <!-- ========== PAGE JS FILES ========== -->
         <script src="jss/prism/prism.js"></script>
-        <script src="jss/waypoint/waypoints.min.js"></script>
-        <script src="jss/counterUp/jquery.counterup.min.js"></script>
-        <script src="jss/amcharts/amcharts.js"></script>
-        <script src="jss/amcharts/serial.js"></script>
-        <script src="jss/amcharts/plugins/export/export.min.js"></script>
-        <link rel="stylesheet" href="jss/amcharts/plugins/export/export.css" type="text/css" media="all" />
-        <script src="jss/amcharts/themes/light.js"></script>
-        <script src="jss/toastr/toastr.min.js"></script>
-        <script src="jss/icheck/icheck.min.js"></script>
+        <script src="jss/DataTables/datatables.min.js"></script>
 
         <!-- ========== THEME JS ========== -->
         <script src="jss/main.js"></script>
-        <script src="jss/production-chart.js"></script>
-        <script src="jss/traffic-chart.js"></script>
-        <script src="jss/task-list.js"></script>
         <script>
-            $(function(){
+            $(function($) {
+                $('#example').DataTable();
 
-                // Counter for dashboard stats
-                $('.counter').counterUp({
-                    delay: 10,
-                    time: 1000
-                });
+                $('#example2').DataTable( {
+                    "scrollY":        "300px",
+                    "scrollCollapse": true,
+                    "paging":         false
+                } );
 
-                // Welcome notification
-                toastr.options = {
-                  "closeButton": true,
-                  "debug": false,
-                  "newestOnTop": false,
-                  "progressBar": false,
-                  "positionClass": "toast-top-right",
-                  "preventDuplicates": false,
-                  "onclick": null,
-                  "showDuration": "300",
-                  "hideDuration": "1000",
-                  "timeOut": "5000",
-                  "extendedTimeOut": "1000",
-                  "showEasing": "swing",
-                  "hideEasing": "linear",
-                  "showMethod": "fadeIn",
-                  "hideMethod": "fadeOut"
-                }
-                toastr["success"]( "Welcome to student Certificate Management System!");
-
+                $('#example3').DataTable();
             });
         </script>
     </body>
 </html>
+
+
 <?php } ?>

@@ -28,7 +28,7 @@ if(isset($_POST['login'])){
               echo"
                   <script>
                   alert('Incorrect Password.');
-                  window.location.href='admin_dashboard.php';
+                  window.location.href='index.php';
                   </script>
                   ";
           }

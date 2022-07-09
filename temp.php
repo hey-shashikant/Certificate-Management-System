@@ -12,49 +12,9 @@ header("Location: index.php");
 if(isset($_POST['login'])){
     // $username = $_POST['user_id'];
     $username=$_POST['username'];
-    $password=($_POST['password']);
-    $user_exist_query = "SELECT * FROM `student` WHERE enrollment_id = '$username' ";
-    $result = mysqli_query($con,$user_exist_query);
-  //   $count = mysqli_num_rows($result);
-  //   echo $count;
-    if($result){
-      // if(mysqli_num_rows($result) == 1){
-          if(mysqli_num_rows($result) == 1){
-          $result_fetch = mysqli_fetch_assoc($result);
-          $pswd = $_POST['password'];
-          $passwd = $result_fetch['password'];
-          if($pswd == $passwd){
-              echo "User Login Successful.";
-              // $_SESSION['logged_in']=true;
-              // $_SESSION['username']=$result_fetch['username'];
-              header("location: user_dashboard.php");
-          }   
-          else{
-              echo"
-                  <script>
-                  alert('Incorrect Password.');
-                  window.location.href='index.php';
-                  </script>
-                  ";
-          }
-      }
-      else{
-          echo"
-              <script>
-              alert('Admin not registered Please contact admin.');
-              window.location.href='index.php';
-              </script>
-              ";
-      }
-    }
-    else{
-      echo"
-      <script>
-      alert('Cannot run query');
-      window.location.href='index.php';
-      </script>
-      ";
-  }
+    // $password=($_POST['password']);
+    $user_exist_query = "SELECT * FROM `certificates` WHERE enrollment_id = '$username' ";
+    include('user_certificates.php');
 }
 
 
@@ -105,12 +65,7 @@ if(isset($_POST['login'])){
                                                     			<input type="text" name="username" class="form-control" id="inputEmail3" placeholder="UserName">
                                                     		</div>
                                                     	</div>
-                                                    	<div class="form-group">
-                                                    		<label for="inputPassword3" class="col-sm-2 control-label">Password</label>
-                                                    		<div class="col-sm-10">
-                                                    			<input type="password" name="password" class="form-control" id="inputPassword3" placeholder="Password">
-                                                    		</div>
-                                                    	</div>
+                                            
                                                     
                                                         <div class="form-group mt-20">
                                                     		<div class="col-sm-offset-2 col-sm-10">

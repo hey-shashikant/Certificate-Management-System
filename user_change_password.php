@@ -114,7 +114,7 @@ return true;
                             <div class="row breadcrumb-div">
                                 <div class="col-md-6">
                                     <ul class="breadcrumb">
-            							<li><a href="dashboard.php"><i class="fa fa-home"></i> Home</a></li>
+            							<li><a href="user_dashboard.php"><i class="fa fa-home"></i> Home</a></li>
             						
             							<li class="active">User change password</li>
             						</ul>
