@@ -175,19 +175,7 @@ include('partials/connection.php');
                     <div class="team-member card-effect">
                         <img src="img/shashikant.jfif" alt="">
                         <h5 class="mb-0 mt-4">Shashikant Solanki</h5>
-                        <p>Web Developer</p>
-                        <div class="social-icons">
-                            <a href="https://www.facebook.com/shashikant.solanki.581"><i class='bx bxl-facebook'></i></a>
-                            <a href="https://twitter.com/cyborg9303"><i class='bx bxl-twitter'></i></a>
-                            <a href="https://www.instagram.com/cyborg9303/"><i class='bx bxl-instagram-alt'></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6">
-                    <div class="team-member card-effect">
-                        <img src="img/team2.jpg" alt="">
-                        <h5 class="mb-0 mt-4">Garv Pratap Singh</h5>
-                        <p>Web Developer</p>
+                        <p>Full Stack Developer</p>
                         <div class="social-icons">
                             <a href="#"><i class='bx bxl-facebook'></i></a>
                             <a href="#"><i class='bx bxl-twitter'></i></a>
@@ -197,7 +185,19 @@ include('partials/connection.php');
                 </div>
                 <div class="col-lg-3 col-sm-6">
                     <div class="team-member card-effect">
-                        <img src="img/team3.jpg" alt="">
+                        <img src="img/garv.jpg" alt="">
+                        <h5 class="mb-0 mt-4">Garv Pratap Singh</h5>
+                        <p>Full Stack Developer</p>
+                        <div class="social-icons">
+                            <a href="#"><i class='bx bxl-facebook'></i></a>
+                            <a href="#"><i class='bx bxl-twitter'></i></a>
+                            <a href="#"><i class='bx bxl-instagram-alt'></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                    <div class="team-member card-effect">
+                        <img src="img/gunjan.png" alt="">
                         <h5 class="mb-0 mt-4">Gunjan</h5>
                         <p>Web Developer</p>
                         <div class="social-icons">
@@ -209,7 +209,7 @@ include('partials/connection.php');
                 </div>
                 <div class="col-lg-3 col-sm-6">
                     <div class="team-member card-effect">
-                        <img src="img/team4.jpg" alt="">
+                        <img src="img/ashutosh.jpg" alt="">
                         <h5 class="mb-0 mt-4">Ashutosh Sharma</h5>
                         <p>Web Developer</p>
                         <div class="social-icons">
@@ -219,6 +219,50 @@ include('partials/connection.php');
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+
+
+        <div class="container">
+            
+            <div class="row text-center g-4">
+                <div class="col-lg-3 col-sm-6">
+                    <div class="team-member card-effect">
+                        <img src="img/amit.jpeg" alt="">
+                        <h5 class="mb-0 mt-4">Amit kapoor</h5>
+                        <p>Full Stack Developer</p>
+                        <div class="social-icons">
+                            <a href="#"><i class='bx bxl-facebook'></i></a>
+                            <a href="#"><i class='bx bxl-twitter'></i></a>
+                            <a href="#"><i class='bx bxl-instagram-alt'></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                    <div class="team-member card-effect">
+                        <img src="img/anjali.jpeg" alt="">
+                        <h5 class="mb-0 mt-4">Anjali</h5>
+                        <p>Web Developer</p>
+                        <div class="social-icons">
+                            <a href="#"><i class='bx bxl-facebook'></i></a>
+                            <a href="#"><i class='bx bxl-twitter'></i></a>
+                            <a href="#"><i class='bx bxl-instagram-alt'></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                    <div class="team-member card-effect">
+                        <img src="img/annie.jpg" alt="">
+                        <h5 class="mb-0 mt-4">Ananya Madaan</h5>
+                        <p>Web Developer</p>
+                        <div class="social-icons">
+                            <a href="#"><i class='bx bxl-facebook'></i></a>
+                            <a href="#"><i class='bx bxl-twitter'></i></a>
+                            <a href="#"><i class='bx bxl-instagram-alt'></i></a>
+                        </div>
+                    </div>
+                </div>
+                
             </div>
         </div>
     </section><!-- TEAM -->
