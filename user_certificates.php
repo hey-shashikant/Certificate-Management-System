@@ -1,12 +1,10 @@
 <?php
 session_start();
-error_reporting(0);
 include('partials/connection.php');
 if(strlen($_SESSION['alogin'])==""){   
-header("Location: index.php"); 
+header("Location: view.php"); 
 }else{
 //For Deleting the notice
-
 ?>
 
 

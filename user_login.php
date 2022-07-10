@@ -11,7 +11,8 @@ header("Location: index.php");
 
 if(isset($_POST['login'])){
     // $username = $_POST['user_id'];
-    $username=$_POST['username'];
+    $username=mysqli_real_escape_string($con,$_POST['username']);
+    // $username=$_POST['username'];
     $password=($_POST['password']);
     $user_exist_query = "SELECT * FROM `student` WHERE enrollment_id = '$username' ";
     $result = mysqli_query($con,$user_exist_query);
@@ -24,6 +25,7 @@ if(isset($_POST['login'])){
           $pswd = $_POST['password'];
           $passwd = $result_fetch['password'];
           if($pswd == $passwd){
+            $_SESSION['customer_username']="$username";
               echo "User Login Successful.";
               // $_SESSION['logged_in']=true;
               // $_SESSION['username']=$result_fetch['username'];
