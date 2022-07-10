@@ -37,13 +37,6 @@
                                            <a href="manage-subjectcombination.php"><i class="fa fa-newspaper-o"></i> <span>Manage Subject Combination </span></a></li>
                                         </ul> -->
                                     </li>
-   <li class="has-children">
-                                        <a href="#"><i class="fa fa-users"></i> <span>View Account Details</span> <i class="fa fa-angle-right arrow"></i></a>
-                                        <ul class="child-nav">
-                                            <li><a href="#"><i class="fa fa-bars"></i> <span>View Details</span></a></li>
-                                           
-                                        </ul>
-                                    </li>
 <li class="has-children">
                                         <a href="#"><i class="fa fa-info-circle"></i> <span>Certificates</span> <i class="fa fa-angle-right arrow"></i></a>
                                         <ul class="child-nav">

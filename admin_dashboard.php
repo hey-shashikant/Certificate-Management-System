@@ -228,21 +228,7 @@ $totalstudents=  mysqli_num_rows( $result );
                                     </div>
                                     <!-- /.col-lg-3 col-md-3 col-sm-6 col-xs-12 -->
 
-                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12"  style="margin-top:1%">
-                                        <a class="dashboard-stat bg-success" href="manage-results.php">
-                                      
-<?php 
-$sql ="SELECT * from query";  
-if ($result = mysqli_query($con, $sql)) {
-$totalstudents=  mysqli_num_rows( $result );
-}
-?>
-                                            <span class="number counter"><?php echo htmlentities($totalstudents);?></span>
-                                            <span class="name">No of Admin</span>
-                                            <span class="bg-icon"><i class="fa fa-file-text"></i></span>
-                                        </a>
-                                        <!-- /.dashboard-stat -->
-                                    </div>
+                            
                                     <!-- /.col-lg-3 col-md-3 col-sm-6 col-xs-12 -->
 
                                 </div>

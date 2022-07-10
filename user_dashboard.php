@@ -118,14 +118,7 @@ if(strlen($_SESSION['alogin'])=="")
                                            <li><a href="add-subjectcombination.php"><i class="fa fa-newspaper-o"></i> <span>Add Subject Combination </span></a></li>
                                            <a href="manage-subjectcombination.php"><i class="fa fa-newspaper-o"></i> <span>Manage Subject Combination </span></a></li>
                                         </ul> -->
-                                    </li>
-   <li class="has-children">
-                                        <a href="#"><i class="fa fa-users"></i> <span>View Account Details</span> <i class="fa fa-angle-right arrow"></i></a>
-                                        <ul class="child-nav">
-                                            <li><a href="#"><i class="fa fa-bars"></i> <span>View Details</span></a></li>
-                                           
-                                        </ul>
-                                    </li>
+                                
 <li class="has-children">
                                         <a href="#"><i class="fa fa-info-circle"></i> <span>Certificates</span> <i class="fa fa-angle-right arrow"></i></a>
                                         <ul class="child-nav">
@@ -170,23 +163,7 @@ if(strlen($_SESSION['alogin'])=="")
                         <section class="section">
                             <div class="container-fluid">
                                 <div class="row">
-                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                        <a class="dashboard-stat bg-primary" href="student_certificate.php">
-
-<?php 
-$sql ="SELECT * from certificates";  
-if ($result = mysqli_query($con, $sql)) {
-$totalstudents=  mysqli_num_rows( $result );
-}
-?>
-
-                                            <!-- <span class="number counter"></span> -->
-                                            <span class="number counter"><?php echo htmlentities($totalstudents);?></span>
-                                            <span class="name">No. Of Certificate for User</span>
-                                            <span class="bg-icon"><i class="fa fa-users"></i></span>
-                                        </a>
-                                        <!-- /.dashboard-stat -->
-                                    </div>
+                                    
                                     <!-- /.col-lg-3 col-md-3 col-sm-6 col-xs-12 -->
 
                           

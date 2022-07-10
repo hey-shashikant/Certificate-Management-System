@@ -80,6 +80,14 @@
                 <div class="col-xs-4 pm-certified col-xs-4 text-center">
                   <span class="pm-credits-text block sans">Date Completed</span>
                   <span class="pm-empty-space block underline"></span>
+
+<?php 
+$sql ="SELECT * from certificates";  
+if ($result = mysqli_query($con, $sql)) {
+$totalstudents=  mysqli_num_rows( $result );
+}
+?>
+
                   <span class="bold block">DOB: </span>
                   <span class="bold block">Social Security # (last 4 digits)</span>
                 </div>

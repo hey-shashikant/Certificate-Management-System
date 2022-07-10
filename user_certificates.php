@@ -112,7 +112,7 @@ header("Location: index.php");
                                         <span class="">Main Category</span>
                                     </li>
                                     <li>
-                                        <a href="admin_dashboard.php"><i class="fa fa-dashboard"></i> <span>Dashboard</span> </a>
+                                        <a href="user_dashboard.php"><i class="fa fa-dashboard"></i> <span>Dashboard</span> </a>
                                      
                                     </li>
 
@@ -136,13 +136,7 @@ header("Location: index.php");
                                            <a href="manage-subjectcombination.php"><i class="fa fa-newspaper-o"></i> <span>Manage Subject Combination </span></a></li>
                                         </ul> -->
                                     </li>
-   <li class="has-children">
-                                        <a href="#"><i class="fa fa-users"></i> <span>View Account Details</span> <i class="fa fa-angle-right arrow"></i></a>
-                                        <ul class="child-nav">
-                                            <li><a href="#"><i class="fa fa-bars"></i> <span>View Details</span></a></li>
-                                           
-                                        </ul>
-                                    </li>
+
 <li class="has-children">
                                         <a href="#"><i class="fa fa-info-circle"></i> <span>Certificates</span> <i class="fa fa-angle-right arrow"></i></a>
                                         <ul class="child-nav">
@@ -183,7 +177,7 @@ header("Location: index.php");
                             <div class="row breadcrumb-div">
                                 <div class="col-md-6">
                                     <ul class="breadcrumb">
-            							<li><a href="admin_dashboard.php"><i class="fa fa-home"></i> Home</a></li>
+            							<li><a href="user_dashboard.php"><i class="fa fa-home"></i> Home</a></li>
                                         <li> Students</li>
             							<li class="active">See All Certificates</li>
             						</ul>
